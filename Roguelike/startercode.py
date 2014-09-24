@@ -70,7 +70,6 @@ class Starter(PygameHelper):
             #    self.SpielerX += 20
             #elif pygame.event.key == pygame.K_D:
              #   self.SpielerY += 20
-        # pass
 
 
 
