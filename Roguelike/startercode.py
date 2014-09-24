@@ -1,99 +1,89 @@
-from pygame import *
-import math
 from pygamehelper import *
+from pygame import *
+from pygame.locals import *
 from vec2d import *
-
+from math import e, pi, cos, sin, sqrt
+from random import uniform
+import random
 
 class Starter(PygameHelper):
     def __init__(self):
         self.w, self.h = 800, 600
         PygameHelper.__init__(self, size=(self.w, self.h), fill=(255, 255, 255))
 
-
-        self.pos = vec2d(400,300)
-        self.target = vec2d(300,300)
-
-
-        self.img = pygame.image.load("tilesets/derek/HeroBase.png")
-        #self.screen.blit(img, (-2, -2))
+        self.SpielerX = 20      #X Koordinate des Spielers (von links nach rechts)
+        self.SpielerY = 20      #Y Koordinate des Spielers (von oben nach unten)
+        self.pos = vec2d(20,20)
+        self.target = vec2d(20,20)
+        self.maximallebenspieler = 100  #Maximalleben
+        self.lebenspieler = 100         #Aktuelles Leben
 
         self.drawcolor = (0, 0, 0)
-        self.x =  0
+        def placeWall (self, koordinateX, koordinateY):         #Generiert random Zahlen um die Map Random zu Generieren
+            randomnumber = random.randint(0,2)
+            if randomnumber == 0:
+                self.screen.blit(self.img3, (koordinateX, koordinateY))
+
+        self.img1 = pygame.image.load("tilesets/derek/HeroBase.png")
+        self.img2 = pygame.image.load("tilesets/derek/Dirt.png")
+        self.img3 = pygame.image.load("tilesets/fegon/Wall.png")
+        for temp in range (0,29,):                  #Lädt die obere Begrenzungslinie
+            self.screen.blit(self.img2, (20*temp, 0))
+        for temp in range (0,30,):                  #Lädt die untere Begrenzungslinie
+            self.screen.blit(self.img2, (20*temp, 580))
+        for temp in range (0,29):                   #Lädt die linke Begrenzungslinie
+            self.screen.blit(self.img2, (0, 20*temp))
+        for temp in range (0,29):                   #Lädt die rechte Begrenzungslinie
+            self.screen.blit(self.img2, (580, 20*temp))
+        self.screen.blit(self.img1, (20, 20))
+        self.screen.blit(self.img3, (20, 40))
+
+        for temp1 in range (1,29):                  #Generiert die Map und geht alle Felder durch
+            for temp2 in range (1,29):
+                placeWall (self,temp1*20,temp2*20)
+
 
     def update(self):
-        dir = self.target - self.pos        #Direction
-        if dir.length>3:
-            dir.length = 3
-        self.pos = self.pos + dir
+        self.screen.blit(self.img1, (self.SpielerX, self.SpielerY))
+        if self.lebenspieler < self.maximallebenspieler:
+            self.lebenspieler += 0.0001
+        elif self.lebenspieler > self.maximallebenspieler:
+            self.lebenspieler = self.maximallebenspieler
 
-
-
-
-
-    def keyUp(self, key):
 
         pass
 
+    def keyUp(self, key):
+        pass
+        #if event.type == pygame.KEYDOWN:
+         #   if pygame.event.key == pygame.K_W:
+          #      self.SpielerX -= 20
+           # elif pygame.event.key == pygame.K_A:
+            #    self.SpielerY -= 20
+           # elif pygame.event.key == pygame.K_S:
+            #    self.SpielerX += 20
+            #elif pygame.event.key == pygame.K_D:
+             #   self.SpielerY += 20
+
+
+
+
+
     def mouseUp(self, button, pos):
-        #pygame.draw.circle(self.screen, (0, 0, 0), pos, 20)
-        #pygame.draw.circle(self.screen, (0, 0, 0), (pos[0], pos[1] + 20) , 20)
         self.target = vec2d( pos)
 
 
-
-        #pass
-
     def mouseMotion(self, buttons, pos, rel):
         pass
-       # if pos[1] >= 25 or pos[0] >= 25:
-       # print (buttons, self, pos, rel)
-       #  if buttons[0] == 1:
-            #pygame.draw.circle(self.screen, (0, 0, 0), pos, 20)
-        #    pygame.draw.line(self.screen, self.drawcolor, pos, (pos[0] - rel[0],pos[1] - rel[1]), 5)
-       # else:
-       #     if pos[0]<20:
-      #          if buttons[0] == 1:
-       #             self.drawcolor = self.screen.get_at(pos)
-       #             pygame.draw.circle(self.screen, self.drawcolor, (200,100), 30)
-
-       # if buttons[2] == 1:
-            #RAINBOW MODE (Rechte Maustaste)
-       #     color = self.screen.get_at((self.x, 0))
-        #    pygame.draw.line(self.screen, color, pos, (pos[0] - rel[0],pos[1] - rel[1]), 5)
-
-   #         self.x += 1
- #           if self.x >= 21:
-  #              self.x = 0
-
-
-
-
-
-
-
-#pygame.draw.line(self.screen, (0,0,0), (pos[0] + 20, pos[1] + 20), (pos[0] - rel[0] + 20,pos[1] - rel[1] + 20), 5)
-
-
-     #   if buttons[1]==1:
-      #      pygame.draw.circle(self.screen, (255,255,255),pos, 25)
 
     def quit (self, key):
         if event.key == pygame.K_ESCAPE:
             pygame.event.post(pygame.event.Event(pygame.QUIT))
 
     def draw(self):
-        #pass
-       # self.screen.fill((255, 255, 255))
-       # pygame.draw.circle(self.screen, (255,0,0), self.target, 30, 1)
-        self.screen.blit(self.img, self.target)
+        pass
 
-       # pygame.draw.circle(self.screen, (0,0,0), self.pos.inttup(), 21, 2)
-
-      #  pygame.draw.circle(self.screen, (200,200,255), self.pos.inttup(), 20)
-
-
-        #pygame.draw.circle(self.screen, (0, 0, 0), (50, 100), 20)
 
 
 s = Starter()
-s.mainLoop(60)
+s.mainLoop(120)
