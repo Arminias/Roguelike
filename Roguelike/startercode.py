@@ -64,11 +64,6 @@ class Starter(PygameHelper):
             self.lebenspieler = self.maximallebenspieler1
         pass
 
-
-
-
-
-
     def mouseUp(self, button, pos):
         self.target = vec2d( pos)
 
