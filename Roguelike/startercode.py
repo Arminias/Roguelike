@@ -29,7 +29,6 @@ class Starter(PygameHelper):
 
 
 
-        pass
 
     def keyUp(self, key):
 
