@@ -76,6 +76,7 @@ class Starter(PygameHelper):
             pygame.event.post(pygame.event.Event(pygame.QUIT))
 
     def draw(self):
+        self.screen.fill((220,180,130))
         self.screen.blit(self.img1, (self.SpielerVec))
         pygame.display.flip()
         pass
