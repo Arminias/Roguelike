@@ -15,28 +15,20 @@ class Starter(PygameHelper):
         self.pos = vec2d(20,20)
         self.target = vec2d(20,20)
         self.drawcolor = (0, 0, 0)
-        def placeWall (self, koordinateX, koordinateY):                   #Generiert random Zahlen um die Map Random zu Generieren
-            randomnumber = random.randint(0,2)
-            if randomnumber == 0:
-                self.screen.blit(self.img3, (koordinateX, koordinateY))
+        self.map = [0]*812
+        def createList (self):                   #Generiert random Zahlen um die Map Random zu Generieren
+            for i in range (0,784):
+                self.map[i] = random.randint(0,2)
+
+            print (self.map)
+        createList (self)
 
         self.img1 = pygame.image.load("tilesets/derek/HeroBase.png")
         self.img2 = pygame.image.load("tilesets/derek/Dirt.png")
         self.img3 = pygame.image.load("tilesets/fegon/Wall.png")
-        for temp in range (0,29,):                  #Lädt die obere Begrenzungslinie
-            self.screen.blit(self.img2, (20*temp, 0))
-        for temp in range (0,30,):                  #Lädt die untere Begrenzungslinie
-            self.screen.blit(self.img2, (20*temp, 580))
-        for temp in range (0,29):                   #Lädt die linke Begrenzungslinie
-            self.screen.blit(self.img2, (0, 20*temp))
-        for temp in range (0,29):                   #Lädt die rechte Begrenzungslinie
-            self.screen.blit(self.img2, (580, 20*temp))
-        self.screen.blit(self.img1, (20, 20))
-        self.screen.blit(self.img3, (20, 40))
 
-        for temp1 in range (1,29):                  #Generiert die Map und geht alle Felder durch
-            for temp2 in range (1,29):
-                placeWall (self,temp1*20,temp2*20)
+        self.anzahlMobs = 5
+        self.Mob1pos = vec2d(20*random.randint (0,28),20*random.randint(0,28))
 
         self.maximallebenspieler = 100                                  #Maximalleben
         self.lebenspieler = 100                                    #Aktuelles Leben
@@ -77,9 +69,21 @@ class Starter(PygameHelper):
 
     def draw(self):
         self.screen.fill((220,180,130))
+        for temp in range (0,30,):                  #Lädt die obere Begrenzungslinie
+            self.screen.blit(self.img2, (20*temp, 0))
+        for temp in range (0,30,):                  #Lädt die untere Begrenzungslinie
+            self.screen.blit(self.img2, (20*temp, 580))
+        for temp in range (0,30):                   #Lädt die linke Begrenzungslinie
+            self.screen.blit(self.img2, (0, 20*temp))
+        for temp in range (0,30):                   #Lädt die rechte Begrenzungslinie
+            self.screen.blit(self.img2, (580, 20*temp))
+        for temp in range (1,29):       #Lädt das innere der Map
+            for temp1 in range (1,29):
+                if self.map[temp*temp1] == 0:
+                    self.screen.blit(self.img3, (temp* 20,temp1*20))
         self.screen.blit(self.img1, (self.SpielerVec))
         pygame.display.flip()
-        pass
+
 
 
 
