@@ -37,21 +37,30 @@ class Starter(PygameHelper):
         self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob1pos[1] * self.Mob1pos[0]] <= 0 or self.Mob1pos == 0:
             self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.map[self.Mob1pos[0]*self.Mob1pos[1]-1] = 10 + self.Mob1skin
 
         self.Mob2skin = random.randint (1,4)
         self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob2pos[1] * self.Mob2pos[0]] <= 0 or self.Mob2pos == 0:
             self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.map[self.Mob2pos[0]*self.Mob2pos[1]-1] = 10 + self.Mob2skin
 
         self.Mob3skin = random.randint (1,4)
         self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob3pos[1] * self.Mob3pos[0]] <= 0 or self.Mob3pos == 0:
             self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.map[self.Mob3pos[0]*self.Mob3pos[1]-1] = 10 + self.Mob3skin
 
         self.Mob4skin = random.randint (1,4)
         self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob4pos[1] * self.Mob4pos[0]] <= 0 or self.Mob4pos == 0:
             self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.map[self.Mob4pos[0]*self.Mob4pos[1]-1] = 10 + self.Mob4skin
+        print (self.Mob1pos)
+        print (self.Mob2pos)
+        print (self.Mob3pos)
+        print (self.Mob4pos)
+        print (self.map)
 
         self.maximallebenspieler = 100                                  #Maximalleben
         self.lebenspieler = 100                                    #Aktuelles Leben
@@ -62,6 +71,7 @@ class Starter(PygameHelper):
         self.MagieSpieler = 10
 
     def keyDown(self,key):
+            print (self.SpielerVec)
             if key == K_w:
                  self.SpielerVec +=  (0,-20)
             elif key == K_a:
