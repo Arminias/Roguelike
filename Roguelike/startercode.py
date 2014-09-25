@@ -51,6 +51,7 @@ class Starter(PygameHelper):
             self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
         self.map[self.Mob3pos[0]*self.Mob3pos[1]-1] = 10 + self.Mob3skin
 
+
         self.Mob4skin = random.randint (1,4)
         self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob4pos[1] * self.Mob4pos[0]] <= 0 or self.Mob4pos == 0:
