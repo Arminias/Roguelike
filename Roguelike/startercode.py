@@ -30,6 +30,7 @@ class Starter(PygameHelper):
         self.anzahlMobs = 5
         self.Mob1pos = vec2d(20*random.randint (0,28),20*random.randint(0,28))
 
+
         self.maximallebenspieler = 100                                  #Maximalleben
         self.lebenspieler = 100                                    #Aktuelles Leben
         self.ErstschlagSpieler = 10
