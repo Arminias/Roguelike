@@ -26,22 +26,29 @@ class Starter(PygameHelper):
         self.img1 = pygame.image.load("tilesets/derek/HeroBase.png")
         self.img2 = pygame.image.load("tilesets/derek/Dirt.png")
         self.img3 = pygame.image.load("tilesets/fegon/Wall.png")
-        self.img4 = pygame.image.load("tilesets/fegon/Golem.png")
-
+        self.imgGolem = pygame.image.load("tilesets/fegon/Golem.png")
+        self.imgVampire = pygame.image.load("tilesets/fegon/Vampire.png")
+        self.imgGoblin = pygame.image.load("tilesets/fegon/Goblin.png")
+        self.imgDragon = pygame.image.load("tilesets/fegon/Dragon.png")
 
         self.anzahlMobs = 5
+        self.Mob1skin = random.randint (1,4)
+        print (self.Mob1skin)
         self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob1pos[1] * self.Mob1pos[0]] <= 0 or self.Mob1pos == 0:
             self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
 
+        self.Mob2skin = random.randint (1,4)
         self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob2pos[1] * self.Mob2pos[0]] <= 0 or self.Mob2pos == 0:
             self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
 
+        self.Mob3skin = random.randint (1,4)
         self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob3pos[1] * self.Mob3pos[0]] <= 0 or self.Mob3pos == 0:
             self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
 
+        self.Mob4skin = random.randint (1,4)
         self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
         while self.map [self.Mob4pos[1] * self.Mob4pos[0]] <= 0 or self.Mob4pos == 0:
             self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
@@ -98,10 +105,38 @@ class Starter(PygameHelper):
                 if self.map[temp*temp1] == 0:
                     self.screen.blit(self.img3, (temp* 20,temp1*20))
         self.screen.blit(self.img1, (self.SpielerVec))
-        self.screen.blit(self.img4, (self.Mob1pos * 20))
-        self.screen.blit(self.img4, (self.Mob2pos * 20))
-        self.screen.blit(self.img4, (self.Mob3pos * 20))
-        self.screen.blit(self.img4, (self.Mob4pos * 20))
+        if self.Mob1skin == 1:
+            self.screen.blit(self.imgGolem, (self.Mob1pos*20))
+        elif self.Mob1skin == 2:
+            self.screen.blit(self.imgVampire, (self.Mob1pos*20))
+        elif self.Mob1skin == 3:
+            self.screen.blit(self.imgGoblin, (self.Mob1pos*20))
+        elif self.Mob1skin == 4:
+            self.screen.blit(self.imgDragon, (self.Mob1pos*20))
+        if self.Mob2skin == 1:
+            self.screen.blit(self.imgGolem, (self.Mob2pos*20))
+        elif self.Mob2skin == 2:
+            self.screen.blit(self.imgVampire, (self.Mob2pos*20))
+        elif self.Mob2skin == 3:
+            self.screen.blit(self.imgGoblin, (self.Mob2pos*20))
+        elif self.Mob2skin == 4:
+            self.screen.blit(self.imgDragon, (self.Mob2pos*20))
+        if self.Mob3skin == 1:
+            self.screen.blit(self.imgGolem, (self.Mob3pos*20))
+        elif self.Mob3skin == 2:
+            self.screen.blit(self.imgVampire, (self.Mob3pos*20))
+        elif self.Mob3skin == 3:
+            self.screen.blit(self.imgGoblin, (self.Mob3pos*20))
+        elif self.Mob3skin == 4:
+            self.screen.blit(self.imgDragon, (self.Mob3pos*20))
+        if self.Mob4skin == 1:
+            self.screen.blit(self.imgGolem, (self.Mob4pos*20))
+        elif self.Mob4skin == 2:
+            self.screen.blit(self.imgVampire, (self.Mob4pos*20))
+        elif self.Mob4skin == 3:
+            self.screen.blit(self.imgGoblin, (self.Mob4pos*20))
+        elif self.Mob4skin == 4:
+            self.screen.blit(self.imgDragon, (self.Mob4pos*20))
         pygame.display.flip()
 
 
