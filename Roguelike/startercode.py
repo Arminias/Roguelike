@@ -26,10 +26,25 @@ class Starter(PygameHelper):
         self.img1 = pygame.image.load("tilesets/derek/HeroBase.png")
         self.img2 = pygame.image.load("tilesets/derek/Dirt.png")
         self.img3 = pygame.image.load("tilesets/fegon/Wall.png")
+        self.img4 = pygame.image.load("tilesets/fegon/Golem.png")
+
 
         self.anzahlMobs = 5
-        self.Mob1pos = vec2d(20*random.randint (0,28),20*random.randint(0,28))
+        self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
+        while self.map [self.Mob1pos[1] * self.Mob1pos[0]] <= 0 or self.Mob1pos == 0:
+            self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
 
+        self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
+        while self.map [self.Mob2pos[1] * self.Mob2pos[0]] <= 0 or self.Mob2pos == 0:
+            self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
+
+        self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
+        while self.map [self.Mob3pos[1] * self.Mob3pos[0]] <= 0 or self.Mob3pos == 0:
+            self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
+
+        self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
+        while self.map [self.Mob4pos[1] * self.Mob4pos[0]] <= 0 or self.Mob4pos == 0:
+            self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
 
         self.maximallebenspieler = 100                                  #Maximalleben
         self.lebenspieler = 100                                    #Aktuelles Leben
@@ -83,6 +98,10 @@ class Starter(PygameHelper):
                 if self.map[temp*temp1] == 0:
                     self.screen.blit(self.img3, (temp* 20,temp1*20))
         self.screen.blit(self.img1, (self.SpielerVec))
+        self.screen.blit(self.img4, (self.Mob1pos * 20))
+        self.screen.blit(self.img4, (self.Mob2pos * 20))
+        self.screen.blit(self.img4, (self.Mob3pos * 20))
+        self.screen.blit(self.img4, (self.Mob4pos * 20))
         pygame.display.flip()
 
 
