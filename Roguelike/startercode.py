@@ -20,8 +20,8 @@ class Starter(PygameHelper):
             for i in range (0,784):
                 self.map[i] = random.randint(0,2)
 
-            print (self.map)
-        createList (self)
+            print(self.map)
+        createList(self)
 
         self.img1 = pygame.image.load("tilesets/derek/HeroBase.png")
         self.img2 = pygame.image.load("tilesets/derek/Dirt.png")
@@ -32,30 +32,30 @@ class Starter(PygameHelper):
         self.imgDragon = pygame.image.load("tilesets/fegon/Dragon.png")
 
         self.anzahlMobs = 5
-        self.Mob1skin = random.randint (1,4)
+        self.Mob1skin = random.randint(1, 4)
         print (self.Mob1skin)
-        self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
         while self.map [self.Mob1pos[1] * self.Mob1pos[0]] <= 0 or self.Mob1pos == 0:
-            self.Mob1pos = vec2d(random.randint (1,28),random.randint(1,28))
+            self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         self.map[self.Mob1pos[0]*self.Mob1pos[1]-1] = 10 + self.Mob1skin
 
-        self.Mob2skin = random.randint (1,4)
-        self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.Mob2skin = random.randint(1, 4)
+        self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map [self.Mob2pos[1] * self.Mob2pos[0]] <= 0 or self.Mob2pos == 0:
-            self.Mob2pos = vec2d(random.randint (1,28),random.randint(1,28))
+            self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         self.map[self.Mob2pos[0]*self.Mob2pos[1]-1] = 10 + self.Mob2skin
 
-        self.Mob3skin = random.randint (1,4)
-        self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
-        while self.map [self.Mob3pos[1] * self.Mob3pos[0]] <= 0 or self.Mob3pos == 0:
-            self.Mob3pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.Mob3skin = random.randint (1, 4)
+        self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
+        while self.map[self.Mob3pos[1] * self.Mob3pos[0]] <= 0 or self.Mob3pos == 0:
+            self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         self.map[self.Mob3pos[0]*self.Mob3pos[1]-1] = 10 + self.Mob3skin
 
 
-        self.Mob4skin = random.randint (1,4)
-        self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
+        self.Mob4skin = random.randint(1, 4)
+        self.Mob4pos = vec2d(random.randint (1, 28) ,random.randint(1, 28))
         while self.map [self.Mob4pos[1] * self.Mob4pos[0]] <= 0 or self.Mob4pos == 0:
-            self.Mob4pos = vec2d(random.randint (1,28),random.randint(1,28))
+            self.Mob4pos = vec2d(random.randint (1, 28) ,random.randint(1, 28))
         self.map[self.Mob4pos[0]*self.Mob4pos[1]-1] = 10 + self.Mob4skin
         print (self.Mob1pos)
         print (self.Mob2pos)
