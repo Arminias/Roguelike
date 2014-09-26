@@ -37,7 +37,7 @@ class Starter(PygameHelper):
         while self.map [(self.Mob1pos[0]-1) *28+ self.Mob1pos[1]] == 0: # or self.Mob1pos == 0:
             print ("1")
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[self.Mob1pos[0]*28+self.Mob1pos[1]] = 10 + self.Mob1skin
+        self.map[self.Mob1pos[1]*28+self.Mob1pos[1]] = 10 + self.Mob1skin
 
         self.Mob2skin = random.randint(1, 4)
         self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
@@ -115,9 +115,7 @@ class Starter(PygameHelper):
             self.screen.blit(self.img2, (580, 20*temp))
         for temp3 in range (0,28):       #Lädt das innere der Map
             temp4 = 0
-            #print (temp3)
             for temp4 in range (0,28):
-                #print (temp4)
                 if self.map[temp3*28+temp4] == 0:
                     self.screen.blit(self.img3, (temp4* 20+20,temp3*20+20))
         self.screen.blit(self.img1, (self.SpielerVec))
