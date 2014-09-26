@@ -10,6 +10,8 @@ class Starter(PygameHelper):
     def __init__(self):
         self.w, self.h = 800, 600
         PygameHelper.__init__(self, size=(self.w, self.h), fill=(255, 255, 255))
+        self.size = [800,600]
+        self.screen = pygame.display.set_mode(self.size)
 
         self.SpielerVec = vec2d(20, 20)                           #X Koordinate des Spielers (von links nach rechts)self.SpielerY = 20 Y Koordinate des Spielers (von oben nach unten)
         self.pos = vec2d(20,20)
@@ -22,7 +24,8 @@ class Starter(PygameHelper):
 
             print(self.map)
         createList(self)
-
+        self.red = [255, 0, 0]
+        self.ItemSlots = pygame.image.load ("tilesets/EigeneBilder/itemslots.png")
         self.img1 = pygame.image.load("tilesets/derek/HeroBase.png")
         self.img2 = pygame.image.load("tilesets/derek/Dirt.png")
         self.img3 = pygame.image.load("tilesets/fegon/Wall.png")
@@ -66,7 +69,7 @@ class Starter(PygameHelper):
         print (self.map)
 
         self.maximallebenspieler = 100                                  #Maximalleben
-        self.lebenspieler = 100                                    #Aktuelles Leben
+        self.lebenspieler = 10                                  #Aktuelles Leben
         self.ErstschlagSpieler = 10
         self.StaerkeSpieler = 10
         self.GeschicklichkeitSpieler = 10
@@ -87,7 +90,7 @@ class Starter(PygameHelper):
 
         self.screen.blit(self.img1, (self.SpielerVec))#, self.SpielerY))
         if self.lebenspieler < self.maximallebenspieler:
-            self.lebenspieler += 0.0001
+            self.lebenspieler += 0.002
         elif self.lebenspieler > self.maximallebenspieler:
             self.lebenspieler = self.maximallebenspieler1
         pass
@@ -151,6 +154,10 @@ class Starter(PygameHelper):
             self.screen.blit(self.imgGoblin, (self.Mob4pos*20))
         elif self.Mob4skin == 4:
             self.screen.blit(self.imgDragon, (self.Mob4pos*20))
+
+        pygame.draw.rect(self.screen, self.red, [610, 20, self.lebenspieler / self.maximallebenspieler*140, 30])
+        self.screen.blit(self.ItemSlots, (610,90))
+
         pygame.display.flip()
 
 
