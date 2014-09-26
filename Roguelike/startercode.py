@@ -15,9 +15,9 @@ class Starter(PygameHelper):
         self.pos = vec2d(20,20)
         self.target = vec2d(20,20)
         self.drawcolor = (0, 0, 0)
-        self.map = [0]*812
+        self.map = [0]*1000
         def createList (self):                   #Generiert random Zahlen um die Map Random zu Generieren
-            for i in range (0,784):
+            for i in range (0,1000):
                 self.map[i] = random.randint(0,2)
 
             print(self.map)
@@ -33,30 +33,32 @@ class Starter(PygameHelper):
 
         self.anzahlMobs = 5
         self.Mob1skin = random.randint(1, 4)
-        print (self.Mob1skin)
         self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
-        while self.map [self.Mob1pos[1] * self.Mob1pos[0]] <= 0 or self.Mob1pos == 0:
+        while self.map [(self.Mob1pos[0]-1) *28+ self.Mob1pos[1]] == 0: # or self.Mob1pos == 0:
+            print ("1")
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[self.Mob1pos[0]*self.Mob1pos[1]-1] = 10 + self.Mob1skin
+        self.map[self.Mob1pos[0]*28+self.Mob1pos[1]] = 10 + self.Mob1skin
 
         self.Mob2skin = random.randint(1, 4)
         self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        while self.map [self.Mob2pos[1] * self.Mob2pos[0]] <= 0 or self.Mob2pos == 0:
+        while self.map [(self.Mob2pos[0]-1) *28+ self.Mob2pos[1]] <= 0: # or self.Mob2pos == 0:
+            print ("2")
             self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        self.map[self.Mob2pos[0]*self.Mob2pos[1]-1] = 10 + self.Mob2skin
+        self.map[self.Mob2pos[0]-1*28+self.Mob2pos[1]] = 10 + self.Mob2skin
 
         self.Mob3skin = random.randint (1, 4)
         self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        while self.map[self.Mob3pos[1] * self.Mob3pos[0]] <= 0 or self.Mob3pos == 0:
+        while self.map[(self.Mob3pos[0]-1) *28+ self.Mob3pos[1]] <= 0: # or self.Mob3pos == 0:
+            print ("3")
             self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        self.map[self.Mob3pos[0]*self.Mob3pos[1]-1] = 10 + self.Mob3skin
-
+        self.map[self.Mob3pos[0]*28+self.Mob3pos[1]] = 10 + self.Mob3skin
 
         self.Mob4skin = random.randint(1, 4)
-        self.Mob4pos = vec2d(random.randint (1, 28) ,random.randint(1, 28))
-        while self.map [self.Mob4pos[1] * self.Mob4pos[0]] <= 0 or self.Mob4pos == 0:
-            self.Mob4pos = vec2d(random.randint (1, 28) ,random.randint(1, 28))
-        self.map[self.Mob4pos[0]*self.Mob4pos[1]-1] = 10 + self.Mob4skin
+        self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
+        while self.map [(self.Mob4pos[0]-1) *28+ self.Mob4pos[1]] <= 0: # or self.Mob4pos == 0:
+            print ("4")
+            self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
+        self.map[self.Mob4pos[0]*28+self.Mob4pos[1]] = 10 + self.Mob4skin
         print (self.Mob1pos)
         print (self.Mob2pos)
         print (self.Mob3pos)
@@ -111,10 +113,13 @@ class Starter(PygameHelper):
             self.screen.blit(self.img2, (0, 20*temp))
         for temp in range (0,30):                   #Lädt die rechte Begrenzungslinie
             self.screen.blit(self.img2, (580, 20*temp))
-        for temp in range (1,29):       #Lädt das innere der Map
-            for temp1 in range (1,29):
-                if self.map[temp*temp1] == 0:
-                    self.screen.blit(self.img3, (temp* 20,temp1*20))
+        for temp3 in range (0,28):       #Lädt das innere der Map
+            temp4 = 0
+            #print (temp3)
+            for temp4 in range (0,28):
+                #print (temp4)
+                if self.map[temp3*28+temp4] == 0:
+                    self.screen.blit(self.img3, (temp4* 20+20,temp3*20+20))
         self.screen.blit(self.img1, (self.SpielerVec))
         if self.Mob1skin == 1:
             self.screen.blit(self.imgGolem, (self.Mob1pos*20))
