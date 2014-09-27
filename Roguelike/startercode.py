@@ -25,6 +25,8 @@ class Starter(PygameHelper):
             print(self.map)
         createList(self)
         self.red = [255, 0, 0]
+        self.Attackimg1 = pygame.image.load ("tilesets/fegon/Attackboost.png")
+        self.Attackimg2 = pygame.image.load ("tilesets/EigeneBilder/sword2.png")
         self.ItemSlots = pygame.image.load ("tilesets/EigeneBilder/itemslots.png")
         self.img1 = pygame.image.load("tilesets/derek/HeroBase.png")
         self.img2 = pygame.image.load("tilesets/derek/Dirt.png")
@@ -157,6 +159,7 @@ class Starter(PygameHelper):
 
         pygame.draw.rect(self.screen, self.red, [610, 20, self.lebenspieler / self.maximallebenspieler*140, 30])
         self.screen.blit(self.ItemSlots, (610,90))
+        self.screen.blit(self.Attackimg2, (610,200))
 
         pygame.display.flip()
 
