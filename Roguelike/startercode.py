@@ -92,13 +92,13 @@ class Starter(PygameHelper):
 
     def keyDown(self,key):
             print (self.SpielerVec)
-            if key == K_w:
+            if key == K_w and self.map[(self.SpielerVec[1]//20-2)*28 + self.SpielerVec[0]//20-1] > 0:
                  self.SpielerVec +=  (0,-20)
-            elif key == K_a:
+            elif key == K_a and self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20-2] > 0:
                 self.SpielerVec += (-20,0)
-            elif key == K_s:
+            elif key == K_s and self.map[(self.SpielerVec[1]//20)*28 + self.SpielerVec[0]//20-1] > 0:
                 self.SpielerVec += (0,20)
-            elif key == K_d:
+            elif key == K_d and self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20] > 0:
                 self.SpielerVec += (20,0)
     def update(self):
 
