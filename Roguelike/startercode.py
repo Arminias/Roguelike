@@ -27,9 +27,9 @@ class Starter(PygameHelper):
         self.red = [255, 0, 0]
         self.blue = [0, 0, 255]
         self.myfont = pygame.font.SysFont("monospace", 20)
-        self.Verteidigung = pygame.image.load ("tilesets/EigeneBilder/Verteidigung.png")
-        self.Geschicklichkeit = pygame.image.load ("tilesets/EigeneBilder/Geschicklichkeit.png")
-        self.Magic = pygame.image.load ("tilesets/EigeneBilder/Magic.png")
+        self.Verteidigungimg = pygame.image.load ("tilesets/EigeneBilder/Verteidigung.png")
+        self.Geschicklichkeitimg = pygame.image.load ("tilesets/EigeneBilder/Geschicklichkeit.png")
+        self.Magicimg = pygame.image.load ("tilesets/EigeneBilder/Magic.png")
         self.Attackimg1 = pygame.image.load ("tilesets/fegon/Attackboost.png")
         self.Attackimg2 = pygame.image.load ("tilesets/EigeneBilder/sword2.png")
         self.ItemSlots = pygame.image.load ("tilesets/EigeneBilder/itemslots.png")
@@ -44,31 +44,31 @@ class Starter(PygameHelper):
         self.anzahlMobs = 5
         self.Mob1skin = random.randint(1, 4)
         self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
-        while self.map [(self.Mob1pos[0]-1) *28+ self.Mob1pos[1]] == 0: # or self.Mob1pos == 0:
+        while self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] == 0: # or self.Mob1pos == 0:
             print ("1")
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[self.Mob1pos[1]*28+self.Mob1pos[1]] = 10 + self.Mob1skin
+        self.map[(self.Mob1pos[1]-1)*28+self.Mob1pos[0] - 1] = 10 + self.Mob1skin
 
         self.Mob2skin = random.randint(1, 4)
         self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        while self.map [(self.Mob2pos[0]-1) *28+ self.Mob2pos[1]] <= 0: # or self.Mob2pos == 0:
+        while self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] <= 0: # or self.Mob2pos == 0:
             print ("2")
             self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        self.map[self.Mob2pos[0]-1*28+self.Mob2pos[1]] = 10 + self.Mob2skin
+        self.map[(self.Mob2pos[1]-1)*28 + self.Mob2pos[0] - 1] = 10 + self.Mob2skin
 
         self.Mob3skin = random.randint (1, 4)
         self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        while self.map[(self.Mob3pos[0]-1) *28+ self.Mob3pos[1]] <= 0: # or self.Mob3pos == 0:
+        while self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] <= 0: # or self.Mob3pos == 0:
             print ("3")
             self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        self.map[self.Mob3pos[0]*28+self.Mob3pos[1]] = 10 + self.Mob3skin
+        self.map[(self.Mob3pos[1]-1)*28 + self.Mob3pos[0] - 1] = 10 + self.Mob3skin
 
         self.Mob4skin = random.randint(1, 4)
         self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        while self.map [(self.Mob4pos[0]-1) *28+ self.Mob4pos[1]] <= 0: # or self.Mob4pos == 0:
+        while self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] <= 0: # or self.Mob4pos == 0:
             print ("4")
             self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[self.Mob4pos[0]*28+self.Mob4pos[1]] = 10 + self.Mob4skin
+        self.map[(self.Mob4pos[1]-1)*28 + self.Mob4pos[0] - 1] = 10 + self.Mob4skin
         print (self.Mob1pos)
         print (self.Mob2pos)
         print (self.Mob3pos)
@@ -84,6 +84,7 @@ class Starter(PygameHelper):
         self.GeschicklichkeitSpieler = 10
         self.AusdauerSpieler = 10
         self.MagieSpieler = 10
+        self.VerteidigungSpieler = 10
 
     def keyDown(self,key):
             print (self.SpielerVec)
@@ -168,9 +169,13 @@ class Starter(PygameHelper):
         self.screen.blit(self.myfont.render(str(self.maximalmanaSpieler), 1, (0, 0, 0)), (715, 75))
         self.screen.blit(self.ItemSlots, (610,110))
         self.screen.blit(self.Attackimg2, (610,200))
-        self.screen.blit(self.Magic, (680,200))
-        self.screen.blit(self.Geschicklichkeit, (610,400))
-        self.screen.blit(self.Verteidigung, (680,400))
+        self.screen.blit(self.myfont.render(str(self.StaerkeSpieler), 1, (0, 0, 0)), (610, 240))
+        self.screen.blit(self.Magicimg, (680,200))
+        self.screen.blit(self.myfont.render(str(self.MagieSpieler), 1, (0, 0, 0)), (680, 240))
+        self.screen.blit(self.Geschicklichkeitimg, (610,400))
+        self.screen.blit(self.myfont.render(str(self.GeschicklichkeitSpieler), 1, (0, 0, 0)), (610, 440))
+        self.screen.blit(self.Verteidigungimg, (680,400))
+        self.screen.blit(self.myfont.render(str(self.VerteidigungSpieler), 1, (0, 0, 0)), (680, 440))
 
         pygame.display.flip()
 
