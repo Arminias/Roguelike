@@ -24,10 +24,13 @@ class Starter(PygameHelper):
 
             print(self.map)
         createList(self)
+        if self.map[0] == 0:
+            self.map[0] = 1
         self.red = [255, 0, 0]
         self.blue = [0, 0, 255]
         self.myfont = pygame.font.SysFont("monospace", 20)
         self.Verteidigungimg = pygame.image.load ("tilesets/EigeneBilder/Verteidigung.png")
+        self.Staerkeimg = pygame.image.load ("tilesets/EigeneBilder/Staerke3.png")
         self.Geschicklichkeitimg = pygame.image.load ("tilesets/EigeneBilder/Geschicklichkeit.png")
         self.Magicimg = pygame.image.load ("tilesets/EigeneBilder/Magic.png")
         self.Attackimg1 = pygame.image.load ("tilesets/fegon/Attackboost.png")
@@ -85,6 +88,7 @@ class Starter(PygameHelper):
         self.AusdauerSpieler = 10
         self.MagieSpieler = 10
         self.VerteidigungSpieler = 10
+        self.Spielerlevel = 1
 
     def keyDown(self,key):
             print (self.SpielerVec)
@@ -104,12 +108,9 @@ class Starter(PygameHelper):
         self.target = vec2d( pos)
 
 
+
     def mouseMotion(self, buttons, pos, rel):
         pass
-
-    def quit (self, key):
-        if event.key == pygame.K_ESCAPE:
-            pygame.event.post(pygame.event.Event(pygame.QUIT))
 
     def draw(self):
         self.screen.fill((220,180,130))
@@ -122,7 +123,7 @@ class Starter(PygameHelper):
         for temp in range (0,30):                   #Lädt die rechte Begrenzungslinie
             self.screen.blit(self.img2, (580, 20*temp))
         for temp3 in range (0,28):       #Lädt das innere der Map
-            temp4 = 0
+            #temp4 = 0
             for temp4 in range (0,28):
                 if self.map[temp3*28+temp4] == 0:
                     self.screen.blit(self.img3, (temp4* 20+20,temp3*20+20))
@@ -164,18 +165,23 @@ class Starter(PygameHelper):
         pygame.draw.rect(self.screen, self.blue, [610, 30, self.manaSpieler / self.maximalmanaSpieler*140, 15])
         self.screen.blit(self.myfont.render(str(self.lebenspieler) + "  \\\\", 1, (0, 0, 0)), (610, 75))
         self.screen.blit(self.myfont.render(str(self.maximallebenspieler), 1, (0, 0, 0)), (715, 10))
-
         self.screen.blit(self.myfont.render(str(self.manaSpieler) + "  \\\\", 1, (0, 0, 0)), (610, 10))
         self.screen.blit(self.myfont.render(str(self.maximalmanaSpieler), 1, (0, 0, 0)), (715, 75))
+
         self.screen.blit(self.ItemSlots, (610,110))
         self.screen.blit(self.Attackimg2, (610,200))
-        self.screen.blit(self.myfont.render(str(self.StaerkeSpieler), 1, (0, 0, 0)), (610, 240))
+        self.screen.blit(self.myfont.render(str(self.ErstschlagSpieler), 1, (0, 0, 0)), (610, 240))
         self.screen.blit(self.Magicimg, (680,200))
         self.screen.blit(self.myfont.render(str(self.MagieSpieler), 1, (0, 0, 0)), (680, 240))
+        self.screen.blit(self.Staerkeimg, (750,200))
+        self.screen.blit(self.myfont.render(str(self.StaerkeSpieler), 1, (0, 0, 0)), (750, 240))
         self.screen.blit(self.Geschicklichkeitimg, (610,400))
         self.screen.blit(self.myfont.render(str(self.GeschicklichkeitSpieler), 1, (0, 0, 0)), (610, 440))
         self.screen.blit(self.Verteidigungimg, (680,400))
         self.screen.blit(self.myfont.render(str(self.VerteidigungSpieler), 1, (0, 0, 0)), (680, 440))
+
+        pygame.draw.rect(self.screen, self.red, [610, 560, 180, 30])
+        self.screen.blit(self.myfont.render("Beenden", 1, (0, 0, 0)), (630, 560))
 
         pygame.display.flip()
 
