@@ -25,6 +25,11 @@ class Starter(PygameHelper):
             print(self.map)
         createList(self)
         self.red = [255, 0, 0]
+        self.blue = [0, 0, 255]
+        self.myfont = pygame.font.SysFont("monospace", 20)
+        self.Verteidigung = pygame.image.load ("tilesets/EigeneBilder/Verteidigung.png")
+        self.Geschicklichkeit = pygame.image.load ("tilesets/EigeneBilder/Geschicklichkeit.png")
+        self.Magic = pygame.image.load ("tilesets/EigeneBilder/Magic.png")
         self.Attackimg1 = pygame.image.load ("tilesets/fegon/Attackboost.png")
         self.Attackimg2 = pygame.image.load ("tilesets/EigeneBilder/sword2.png")
         self.ItemSlots = pygame.image.load ("tilesets/EigeneBilder/itemslots.png")
@@ -70,8 +75,10 @@ class Starter(PygameHelper):
         print (self.Mob4pos)
         print (self.map)
 
-        self.maximallebenspieler = 100                                  #Maximalleben
-        self.lebenspieler = 10                                  #Aktuelles Leben
+        self.maximallebenspieler = 100
+        self.lebenspieler = 100
+        self.manaSpieler = 100
+        self.maximalmanaSpieler = 100
         self.ErstschlagSpieler = 10
         self.StaerkeSpieler = 10
         self.GeschicklichkeitSpieler = 10
@@ -91,11 +98,6 @@ class Starter(PygameHelper):
     def update(self):
 
         self.screen.blit(self.img1, (self.SpielerVec))#, self.SpielerY))
-        if self.lebenspieler < self.maximallebenspieler:
-            self.lebenspieler += 0.002
-        elif self.lebenspieler > self.maximallebenspieler:
-            self.lebenspieler = self.maximallebenspieler1
-        pass
 
     def mouseUp(self, button, pos):
         self.target = vec2d( pos)
@@ -157,9 +159,18 @@ class Starter(PygameHelper):
         elif self.Mob4skin == 4:
             self.screen.blit(self.imgDragon, (self.Mob4pos*20))
 
-        pygame.draw.rect(self.screen, self.red, [610, 20, self.lebenspieler / self.maximallebenspieler*140, 30])
-        self.screen.blit(self.ItemSlots, (610,90))
+        pygame.draw.rect(self.screen, self.red, [610, 45, self.lebenspieler / self.maximallebenspieler*140, 30])
+        pygame.draw.rect(self.screen, self.blue, [610, 30, self.manaSpieler / self.maximalmanaSpieler*140, 15])
+        self.screen.blit(self.myfont.render(str(self.lebenspieler) + "  \\\\", 1, (0, 0, 0)), (610, 75))
+        self.screen.blit(self.myfont.render(str(self.maximallebenspieler), 1, (0, 0, 0)), (715, 10))
+
+        self.screen.blit(self.myfont.render(str(self.manaSpieler) + "  \\\\", 1, (0, 0, 0)), (610, 10))
+        self.screen.blit(self.myfont.render(str(self.maximalmanaSpieler), 1, (0, 0, 0)), (715, 75))
+        self.screen.blit(self.ItemSlots, (610,110))
         self.screen.blit(self.Attackimg2, (610,200))
+        self.screen.blit(self.Magic, (680,200))
+        self.screen.blit(self.Geschicklichkeit, (610,400))
+        self.screen.blit(self.Verteidigung, (680,400))
 
         pygame.display.flip()
 
@@ -168,3 +179,4 @@ class Starter(PygameHelper):
 
 s = Starter()
 s.mainLoop(120)
+
