@@ -48,28 +48,24 @@ class Starter(PygameHelper):
         self.Mob1skin = random.randint(1, 4)
         self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
         while self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] == 0: # or self.Mob1pos == 0:
-            print ("1")
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         self.map[(self.Mob1pos[1]-1)*28+self.Mob1pos[0] - 1] = 10 + self.Mob1skin
 
         self.Mob2skin = random.randint(1, 4)
         self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] <= 0: # or self.Mob2pos == 0:
-            print ("2")
             self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         self.map[(self.Mob2pos[1]-1)*28 + self.Mob2pos[0] - 1] = 10 + self.Mob2skin
 
         self.Mob3skin = random.randint (1, 4)
         self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] <= 0: # or self.Mob3pos == 0:
-            print ("3")
             self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         self.map[(self.Mob3pos[1]-1)*28 + self.Mob3pos[0] - 1] = 10 + self.Mob3skin
 
         self.Mob4skin = random.randint(1, 4)
         self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] <= 0: # or self.Mob4pos == 0:
-            print ("4")
             self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         self.map[(self.Mob4pos[1]-1)*28 + self.Mob4pos[0] - 1] = 10 + self.Mob4skin
         print (self.Mob1pos)
@@ -90,16 +86,32 @@ class Starter(PygameHelper):
         self.VerteidigungSpieler = 10
         self.Spielerlevel = 1
 
+
     def keyDown(self,key):
             print (self.SpielerVec)
+            def Kampf (self):
+                print ("Kampf")
+                pass
             if key == K_w and self.map[(self.SpielerVec[1]//20-2)*28 + self.SpielerVec[0]//20-1] > 0:
-                 self.SpielerVec +=  (0,-20)
+                if self.map[(self.SpielerVec[1]//20-2)*28 + self.SpielerVec[0]//20-1] > 10:
+                    Kampf (self)
+                else:
+                    self.SpielerVec +=  (0,-20)
             elif key == K_a and self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20-2] > 0:
-                self.SpielerVec += (-20,0)
+                if self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20-2] > 10:
+                    Kampf (self)
+                else:
+                    self.SpielerVec += (-20,0)
             elif key == K_s and self.map[(self.SpielerVec[1]//20)*28 + self.SpielerVec[0]//20-1] > 0:
-                self.SpielerVec += (0,20)
+                if self.map[(self.SpielerVec[1]//20)*28 + self.SpielerVec[0]//20-1] > 10:
+                    Kampf (self)
+                else:
+                    self.SpielerVec += (0,20)
             elif key == K_d and self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20] > 0:
-                self.SpielerVec += (20,0)
+                if self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20] > 10:
+                    Kampf (self)
+                else:
+                    self.SpielerVec += (20,0)
     def update(self):
 
         self.screen.blit(self.img1, (self.SpielerVec))#, self.SpielerY))
@@ -175,10 +187,10 @@ class Starter(PygameHelper):
         self.screen.blit(self.myfont.render(str(self.MagieSpieler), 1, (0, 0, 0)), (680, 240))
         self.screen.blit(self.Staerkeimg, (750,200))
         self.screen.blit(self.myfont.render(str(self.StaerkeSpieler), 1, (0, 0, 0)), (750, 240))
-        self.screen.blit(self.Geschicklichkeitimg, (610,400))
-        self.screen.blit(self.myfont.render(str(self.GeschicklichkeitSpieler), 1, (0, 0, 0)), (610, 440))
-        self.screen.blit(self.Verteidigungimg, (680,400))
-        self.screen.blit(self.myfont.render(str(self.VerteidigungSpieler), 1, (0, 0, 0)), (680, 440))
+        self.screen.blit(self.Geschicklichkeitimg, (610,270))
+        self.screen.blit(self.myfont.render(str(self.GeschicklichkeitSpieler), 1, (0, 0, 0)), (610, 310))
+        self.screen.blit(self.Verteidigungimg, (680,270))
+        self.screen.blit(self.myfont.render(str(self.VerteidigungSpieler), 1, (0, 0, 0)), (680, 310))
 
         pygame.draw.rect(self.screen, self.red, [610, 560, 180, 30])
         self.screen.blit(self.myfont.render("Beenden", 1, (0, 0, 0)), (630, 560))
