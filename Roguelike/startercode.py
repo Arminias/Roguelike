@@ -72,6 +72,7 @@ class Starter(PygameHelper):
         self.Mob8inventory1 = [0] * 13
 
 
+
         self.anzahlMobs = 5
         self.Mob1Liste[0] = random.randint (1,8)
         self.Mob1Liste[1] = random.randint(1, 4)
@@ -188,19 +189,6 @@ class Starter(PygameHelper):
         self.Spielerinventory8 = 15 * [0]
         self.Spielerinventory9 = 15 * [0]
         self.Spielerinventory10 = 15 * [0]
-
-        """self.maximallebenspieler = 100
-        self.lebenspieler = 100
-        self.manaSpieler = 100
-        self.maximalmanaSpieler = 100
-        self.ErstschlagSpieler = 10
-        self.StaerkeSpieler = 10
-        self.GeschicklichkeitSpieler = 10
-        self.AusdauerSpieler = 10
-        self.MagieSpieler = 10
-        self.VerteidigungSpieler = 10
-        self.Spielerlevel = 1"""
-        print ("Initialisierung abgeschlossen")
 
     def keyDown(self,key):
             print (self.SpielerVec)
