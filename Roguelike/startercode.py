@@ -46,20 +46,39 @@ class Starter(PygameHelper):
         self.imgGoblin = pygame.image.load("tilesets/fegon/Goblin.png")
         self.imgDragon = pygame.image.load("tilesets/fegon/Dragon.png")
 
-        self.Mob1Liste = [0]*10
-        self.Mob2Liste = [0]*10
-        self.Mob3Liste = [0]*10
-        self.Mob4Liste = [0]*10
-        self.Mob5Liste = [0]*10
-        self.Mob6Liste = [0]*10
-        self.Mob7Liste = [0]*10
-        self.Mob8Liste = [0]*10
+        self.Mob1Liste = [0]*11
+        self.Mob2Liste = [0]*11
+        self.Mob3Liste = [0]*11
+        self.Mob4Liste = [0]*11
+        self.Mob5Liste = [0]*11
+        self.Mob6Liste = [0]*11
+        self.Mob7Liste = [0]*11
+        self.Mob8Liste = [0]*11
+        self.Mob1inventory1 = [0] * 13
+        self.Mob1inventory2 = [0] * 13
+        self.Mob2inventory1 = [0] * 13
+        self.Mob2inventory2 = [0] * 13
+        self.Mob3inventory1 = [0] * 13
+        self.Mob3inventory2 = [0] * 13
+        self.Mob4inventory1 = [0] * 13
+        self.Mob4inventory2 = [0] * 13
+        self.Mob5inventory1 = [0] * 13
+        self.Mob5inventory2 = [0] * 13
+        self.Mob6inventory1 = [0] * 13
+        self.Mob6inventory2 = [0] * 13
+        self.Mob7inventory1 = [0] * 13
+        self.Mob7inventory2 = [0] * 13
+        self.Mob8inventory1 = [0] * 13
+        self.Mob8inventory1 = [0] * 13
+
 
         self.anzahlMobs = 5
         self.Mob1Liste[0] = random.randint (1,8)
         self.Mob1Liste[1] = random.randint(1, 4)
         self.Mob1Liste[2] = self.Mob1Liste[0]* self.Mob1Liste[0]*self.Mob1Liste[1]
         self.Mob1Liste[3] = self.Mob1Liste[2]
+        self.Mob1Liste[4] = self.Mob1Liste[0] * random.randint(1,10)
+        #self.Mob1Liste[5] =
         self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
         while self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] <= 0 or self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] > 10: # or self.Mob1pos == 0:
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -142,8 +161,35 @@ class Starter(PygameHelper):
 
         print (self.map)
 
-        self.MobimFocus = 0
-        self.maximallebenspieler = 100
+        self.MobimFocus = 1
+        self.SpielerListe = [0] * 30
+        self.SpielerListe[0] = 1
+        self.SpielerListe[1] = 1
+        self.SpielerListe[2] = "Hero"
+        self.SpielerListe[3] = 0
+        self.SpielerListe[4] = 10
+        self.SpielerListe[5] = 10
+        self.SpielerListe[6] = 10
+        self.SpielerListe[7] = 10
+        self.SpielerListe[8] = 10
+        self.SpielerListe[9] = 10
+        self.SpielerListe[10] = 10
+        self.SpielerListe[11] = 10
+        self.SpielerListe[12] = 100
+        self.SpielerListe[13] = 100
+
+        self.Spielerinventory1 = 15 * [0]
+        self.Spielerinventory2 = 15 * [0]
+        self.Spielerinventory3 = 15 * [0]
+        self.Spielerinventory4 = 15 * [0]
+        self.Spielerinventory5 = 15 * [0]
+        self.Spielerinventory6 = 15 * [0]
+        self.Spielerinventory7 = 15 * [0]
+        self.Spielerinventory8 = 15 * [0]
+        self.Spielerinventory9 = 15 * [0]
+        self.Spielerinventory10 = 15 * [0]
+
+        """self.maximallebenspieler = 100
         self.lebenspieler = 100
         self.manaSpieler = 100
         self.maximalmanaSpieler = 100
@@ -153,7 +199,7 @@ class Starter(PygameHelper):
         self.AusdauerSpieler = 10
         self.MagieSpieler = 10
         self.VerteidigungSpieler = 10
-        self.Spielerlevel = 1
+        self.Spielerlevel = 1"""
         print ("Initialisierung abgeschlossen")
 
     def keyDown(self,key):
@@ -183,11 +229,11 @@ class Starter(PygameHelper):
                 else:
                     self.SpielerVec += (20,0)
     def update(self):
-
-        self.screen.blit(self.img1, (self.SpielerVec))#, self.SpielerY))
-
+        self.SpielerListe[4] = 10 + self.Spielerinventory1[5] + self.Spielerinventory2[5] + self.Spielerinventory3[5] + self.Spielerinventory4[5] + self.Spielerinventory5[5] + self.Spielerinventory6[5] + self.Spielerinventory7[5] + self.Spielerinventory8[5] + self.Spielerinventory9[5] + self.Spielerinventory10[5]
+        self.SpielerListe[6] = 10 + self.Spielerinventory1[6] + self.Spielerinventory2[6] + self.Spielerinventory3[6] + self.Spielerinventory4[6] + self.Spielerinventory5[6] + self.Spielerinventory6[6] + self.Spielerinventory7[6] + self.Spielerinventory8[6] + self.Spielerinventory9[6] + self.Spielerinventory10[6]
+        if self.SpielerListe[5] > self.SpielerListe[4]:
+            self.SpielerListe[5] = self.SpielerListe[4]
     def mouseUp(self, button, pos):
-        print ("hi")
         self.target = vec2d( pos)
         if self.target[0] >= self.Mob1pos[0] and self.target[0] <= self.Mob1pos[0] +20 and self.target[1] >= self.Mob1pos[1] and self.target[1] <= self.Mob1pos[1] +20:
             print ("MOb1")
@@ -278,30 +324,53 @@ class Starter(PygameHelper):
         elif self.Mob8Liste[1] == 4:
             self.screen.blit(self.imgDragon, (self.Mob8pos*20))
 
-        if self.MobimFocus == 0:
+        if self.MobimFocus == 1:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob1Liste[2] / self.Mob1Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob1Liste[0])), 1, (0, 0, 0)), (765, 400))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[3])), 1, (0, 0, 0)), (710, 440))
+            self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[2])), 1, (0, 0, 0)), (610, 440))
+        elif self.MobimFocus == 2:
+            pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob2Liste[2] / self.Mob2Liste[3]*140, 30])
+            self.screen.blit(self.Leveldesign.render(str(int(self.Mob2Liste[0])), 1, (0, 0, 0)), (765, 400))
+        elif self.MobimFocus == 3:
+            pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob3Liste[2] / self.Mob3Liste[3]*140, 30])
+            self.screen.blit(self.Leveldesign.render(str(int(self.Mob3Liste[0])), 1, (0, 0, 0)), (765, 400))
+        elif self.MobimFocus == 4:
+            pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob4Liste[2] / self.Mob4Liste[3]*140, 30])
+            self.screen.blit(self.Leveldesign.render(str(int(self.Mob4Liste[0])), 1, (0, 0, 0)), (765, 400))
+        elif self.MobimFocus == 5:
+            pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob5Liste[2] / self.Mob5Liste[3]*140, 30])
+            self.screen.blit(self.Leveldesign.render(str(int(self.Mob5Liste[0])), 1, (0, 0, 0)), (765, 400))
+        elif self.MobimFocus == 6:
+            pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob6Liste[2] / self.Mob6Liste[3]*140, 30])
+            self.screen.blit(self.Leveldesign.render(str(int(self.Mob6iste[0])), 1, (0, 0, 0)), (765, 400))
+        elif self.MobimFocus == 7:
+            pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob7Liste[2] / self.Mob7Liste[3]*140, 30])
+            self.screen.blit(self.Leveldesign.render(str(int(self.Mob7Liste[0])), 1, (0, 0, 0)), (765, 400))
+        elif self.MobimFocus == 8:
+            pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob8Liste[2] / self.Mob8Liste[3]*140, 30])
+            self.screen.blit(self.Leveldesign.render(str(int(self.Mob8Liste[0])), 1, (0, 0, 0)), (765, 400))
 
-
-        pygame.draw.rect(self.screen, self.red, [610, 45, self.lebenspieler / self.maximallebenspieler*140, 30])
-        pygame.draw.rect(self.screen, self.blue, [610, 30, self.manaSpieler / self.maximalmanaSpieler*140, 15])
-        self.screen.blit(self.myfont.render(str(int(self.lebenspieler)) + "  \\\\", 1, (0, 0, 0)), (610, 75))
-        self.screen.blit(self.myfont.render(str(int(self.maximallebenspieler)), 1, (0, 0, 0)), (715, 10))
-        self.screen.blit(self.myfont.render(str(int(self.manaSpieler)) + "  \\\\", 1, (0, 0, 0)), (610, 10))
-        self.screen.blit(self.myfont.render(str(int(self.maximalmanaSpieler)), 1, (0, 0, 0)), (715, 75))
-        self.screen.blit(self.Leveldesign.render(str(int(self.Spielerlevel)), 1, (0, 0, 0)), (765, 30))
+        pygame.draw.rect(self.screen, self.red, [610, 45, self.SpielerListe[4] / self.SpielerListe[5]*140, 30])
+        pygame.draw.rect(self.screen, self.blue, [610, 30, self.SpielerListe[13] / self.SpielerListe[12]*140, 15])
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[4])) + "  \\\\", 1, (0, 0, 0)), (610, 75))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[12])), 1, (0, 0, 0)), (715, 10))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[13])) + "  \\\\", 1, (0, 0, 0)), (610, 10))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[5])), 1, (0, 0, 0)), (715, 75))
+        self.screen.blit(self.Leveldesign.render(str(int(self.SpielerListe[0])), 1, (0, 0, 0)), (765, 30))
 
         self.screen.blit(self.ItemSlots, (610,110))
         self.screen.blit(self.Attackimg2, (610,200))
-        self.screen.blit(self.myfont.render(str(int(self.ErstschlagSpieler)), 1, (0, 0, 0)), (610, 240))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[6])), 1, (0, 0, 0)), (610, 240))
         self.screen.blit(self.Magicimg, (680,200))
-        self.screen.blit(self.myfont.render(str(int(self.MagieSpieler)), 1, (0, 0, 0)), (680, 240))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[10])), 1, (0, 0, 0)), (680, 240))
         self.screen.blit(self.Staerkeimg, (750,200))
-        self.screen.blit(self.myfont.render(str(int(self.StaerkeSpieler)), 1, (0, 0, 0)), (750, 240))
-        self.screen.blit(self.Geschicklichkeitimg, (610,270))
-        self.screen.blit(self.myfont.render(str(int(self.GeschicklichkeitSpieler)), 1, (0, 0, 0)), (610, 310))
-        self.screen.blit(self.Verteidigungimg, (680,270))
-        self.screen.blit(self.myfont.render(str(int(self.VerteidigungSpieler)), 1, (0, 0, 0)), (680, 310))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[7])), 1, (0, 0, 0)), (750, 240))
+        self.screen.blit(self.Geschicklichkeitimg, (610,290))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[8])), 1, (0, 0, 0)), (610, 330))
+        self.screen.blit(self.Verteidigungimg, (680,290))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[11])), 1, (0, 0, 0)), (680, 330))
 
         pygame.draw.rect(self.screen, self.red, [610, 560, 180, 30])
         self.screen.blit(self.myfont.render("Beenden", 1, (0, 0, 0)), (630, 560))
