@@ -44,61 +44,95 @@ class Starter(PygameHelper):
         self.imgGoblin = pygame.image.load("tilesets/fegon/Goblin.png")
         self.imgDragon = pygame.image.load("tilesets/fegon/Dragon.png")
 
+        self.Mob1Liste = [0]*10
+        self.Mob2Liste = [0]*10
+        self.Mob3Liste = [0]*10
+        self.Mob4Liste = [0]*10
+        self.Mob5Liste = [0]*10
+        self.Mob6Liste = [0]*10
+        self.Mob7Liste = [0]*10
+        self.Mob8Liste = [0]*10
+
         self.anzahlMobs = 5
-        self.Mob1skin = random.randint(1, 4)
+        self.Mob1Liste[0] = random.randint (1,8)
+        self.Mob1Liste[1] = random.randint(1, 4)
+        self.Mob1Liste[2] = self.Mob1Liste[0]*(self.Mob1Liste[0]*self.Mob1Liste[1])
         self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
         while self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] <= 0 or self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] > 10: # or self.Mob1pos == 0:
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[(self.Mob1pos[1]-1)*28+self.Mob1pos[0] - 1] = 10 + self.Mob1skin
+        self.map[(self.Mob1pos[1]-1)*28+self.Mob1pos[0] - 1] = 10 + self.Mob1Liste[1]
 
-        self.Mob2skin = random.randint(1, 4)
+        self.Mob2Liste[0] = random.randint (1,8)
+        self.Mob2Liste[1] = random.randint(1, 4)
+        self.Mob2Liste[2] = self.Mob2Liste[0]* self.Mob2Liste[0]*self.Mob2Liste[1]
         self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] <= 0 or self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] > 10: # or self.Mob2pos == 0:
             self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        self.map[(self.Mob2pos[1]-1)*28 + self.Mob2pos[0] - 1] = 10 + self.Mob2skin
+        self.map[(self.Mob2pos[1]-1)*28 + self.Mob2pos[0] - 1] = 10 + self.Mob2Liste[1]
 
-        self.Mob3skin = random.randint (1, 4)
+        self.Mob3Liste[0] = random.randint (1,8)
+        self.Mob3Liste[1] = random.randint (1, 4)
+        self.Mob3Liste[2] = self.Mob3Liste[0]* self.Mob3Liste[0]*self.Mob1Liste[1]
         self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] <= 0 or self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] > 10: # or self.Mob3pos == 0:
             self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
-        self.map[(self.Mob3pos[1]-1)*28 + self.Mob3pos[0] - 1] = 10 + self.Mob3skin
+        self.map[(self.Mob3pos[1]-1)*28 + self.Mob3pos[0] - 1] = 10 + self.Mob3Liste[1]
 
-        self.Mob4skin = random.randint(1, 4)
+        self.Mob4Liste[0] = random.randint (1,8)
+        self.Mob4Liste[1] = random.randint(1, 4)
+        self.Mob4Liste[2] = self.Mob4Liste[0]* self.Mob4Liste[0]*self.Mob4Liste[1]
         self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] <= 0 or self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[(self.Mob4pos[1]-1)*28 + self.Mob4pos[0] - 1] = 10 + self.Mob4skin
+        self.map[(self.Mob4pos[1]-1)*28 + self.Mob4pos[0] - 1] = 10 + self.Mob4Liste[1]
 
-        self.Mob5skin = random.randint(1, 4)
+        self.Mob5Liste[0] = random.randint (1,8)
+        self.Mob5Liste[1] = random.randint(1, 4)
+        self.Mob5Liste[2] = self.Mob5Liste[0]* self.Mob5Liste[0]*self.Mob5Liste[1]
         self.Mob5pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob5pos[1]-1) *28+ self.Mob5pos[0] - 1] <= 0 or self.map [(self.Mob5pos[1]-1) *28+ self.Mob5pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob5pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[(self.Mob5pos[1]-1)*28 + self.Mob5pos[0] - 1] = 10 + self.Mob5skin
+        self.map[(self.Mob5pos[1]-1)*28 + self.Mob5pos[0] - 1] = 10 + self.Mob5Liste[1]
 
-        self.Mob6skin = random.randint(1, 4)
+        self.Mob6Liste[0] = random.randint (1,8)
+        self.Mob6Liste[1] = random.randint(1, 4)
+        self.Mob6Liste[2] = self.Mob6Liste[0]* self.Mob6Liste[0]*self.Mob6Liste[1]
         self.Mob6pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob6pos[1]-1) *28+ self.Mob6pos[0] - 1] <= 0 or self.map [(self.Mob6pos[1]-1) *28+ self.Mob6pos[0] - 1] <= 0 > 10: # or self.Mob4pos == 0:
             self.Mob6pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[(self.Mob6pos[1]-1)*28 + self.Mob6pos[0] - 1] = 10 + self.Mob6skin
+        self.map[(self.Mob6pos[1]-1)*28 + self.Mob6pos[0] - 1] = 10 + self.Mob6Liste[1]
 
-        self.Mob7skin = random.randint(1, 4)
+        self.Mob7Liste[0] = random.randint (1,8)
+        self.Mob7Liste[1] = random.randint(1, 4)
+        self.Mob7Liste[2] = self.Mob7Liste[0]* self.Mob7Liste[0]*self.Mob7Liste[1]
         self.Mob7pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob7pos[1]-1) *28+ self.Mob7pos[0] - 1] <= 0 or self.map [(self.Mob7pos[1]-1) *28+ self.Mob7pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob7pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[(self.Mob7pos[1]-1)*28 + self.Mob7pos[0] - 1] = 10 + self.Mob7skin
+        self.map[(self.Mob7pos[1]-1)*28 + self.Mob7pos[0] - 1] = 10 + self.Mob7Liste[1]
 
-        self.Mob8skin = random.randint(1, 4)
+        self.Mob8Liste[0] = random.randint (1,8)
+        self.Mob8Liste[1] = random.randint(1, 4)
+        self.Mob8Liste[2] = self.Mob8Liste[0]* self.Mob8Liste[0]*self.Mob8Liste[1]
         self.Mob8pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob8pos[1]-1) *28+ self.Mob8pos[0] - 1] <= 0 or self.map [(self.Mob8pos[1]-1) *28+ self.Mob8pos[0] - 1] > 10: # or self.Mob4pos == 0:
-            print ("h1")
             self.Mob8pos = vec2d(random.randint (1, 28), random.randint(1, 28))
-        self.map[(self.Mob8pos[1]-1)*28 + self.Mob8pos[0] - 1] = 10 + self.Mob8skin
+        self.map[(self.Mob8pos[1]-1)*28 + self.Mob8pos[0] - 1] = 10 + self.Mob8Liste[1]
         print (self.Mob1pos)
         print (self.Mob2pos)
         print (self.Mob3pos)
         print (self.Mob4pos)
+        print (self.Mob1Liste)
+        print (self.Mob2Liste)
+        print (self.Mob3Liste)
+        print (self.Mob4Liste)
+        print (self.Mob5Liste)
+        print (self.Mob6Liste)
+        print (self.Mob7Liste)
+        print (self.Mob8Liste)
+
         print (self.map)
 
+        self.MobimFocus = 0
         self.maximallebenspieler = 100
         self.lebenspieler = 100
         self.manaSpieler = 100
@@ -168,70 +202,74 @@ class Starter(PygameHelper):
                 if self.map[temp3*28+temp4] == 0:
                     self.screen.blit(self.img3, (temp4* 20+20,temp3*20+20))
         self.screen.blit(self.img1, (self.SpielerVec))
-        if self.Mob1skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob1pos*20))
-        elif self.Mob1skin == 2:
+        if self.Mob1Liste[1] == 1:
             self.screen.blit(self.imgVampire, (self.Mob1pos*20))
-        elif self.Mob1skin == 3:
+        elif self.Mob1Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob1pos*20))
-        elif self.Mob1skin == 4:
+        elif self.Mob1Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob1pos*20))
-        if self.Mob2skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob2pos*20))
-        elif self.Mob2skin == 2:
+        elif self.Mob1Liste[1] == 4:
+            self.screen.blit(self.imgGolem, (self.Mob1pos*20))
+        if self.Mob2Liste[1] == 1:
             self.screen.blit(self.imgVampire, (self.Mob2pos*20))
-        elif self.Mob2skin == 3:
+        elif self.Mob2Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob2pos*20))
-        elif self.Mob2skin == 4:
+        elif self.Mob2Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob2pos*20))
-        if self.Mob3skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob3pos*20))
-        elif self.Mob3skin == 2:
+        elif self.Mob2Liste[1] == 4:
+            self.screen.blit(self.imgGolem, (self.Mob2pos*20))
+        if self.Mob3Liste[1] == 1:
             self.screen.blit(self.imgVampire, (self.Mob3pos*20))
-        elif self.Mob3skin == 3:
+        elif self.Mob3Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob3pos*20))
-        elif self.Mob3skin == 4:
+        elif self.Mob3Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob3pos*20))
-        if self.Mob4skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob4pos*20))
-        elif self.Mob4skin == 2:
+        elif self.Mob3Liste[1] == 4:
+            self.screen.blit(self.imgGolem, (self.Mob3pos*20))
+        if self.Mob4Liste[1] == 1:
             self.screen.blit(self.imgVampire, (self.Mob4pos*20))
-        elif self.Mob4skin == 3:
+        elif self.Mob4Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob4pos*20))
-        elif self.Mob4skin == 4:
+        elif self.Mob4Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob4pos*20))
-        if self.Mob5skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob5pos*20))
-        elif self.Mob5skin == 2:
+        elif self.Mob4Liste[1] == 4:
+            self.screen.blit(self.imgGolem, (self.Mob4pos*20))
+        if self.Mob5Liste[1] == 1:
             self.screen.blit(self.imgVampire, (self.Mob5pos*20))
-        elif self.Mob5skin == 3:
+        elif self.Mob5Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob5pos*20))
-        elif self.Mob5skin == 4:
+        elif self.Mob5Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob5pos*20))
-        if self.Mob6skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob6pos*20))
-        elif self.Mob6skin == 2:
+        elif self.Mob5Liste[1] == 4:
+            self.screen.blit(self.imgGolem, (self.Mob5pos*20))
+        if self.Mob6Liste[1] == 1:
             self.screen.blit(self.imgVampire, (self.Mob6pos*20))
-        elif self.Mob6skin == 3:
+        elif self.Mob6Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob6pos*20))
-        elif self.Mob6skin == 4:
+        elif self.Mob6Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob6pos*20))
-        if self.Mob7skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob7pos*20))
-        elif self.Mob7skin == 2:
+        elif self.Mob6Liste[1] == 4:
+            self.screen.blit(self.imgGolem, (self.Mob6pos*20))
+        if self.Mob7Liste[1] == 1:
             self.screen.blit(self.imgVampire, (self.Mob7pos*20))
-        elif self.Mob7skin == 3:
+        elif self.Mob7Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob7pos*20))
-        elif self.Mob7skin == 4:
+        elif self.Mob7Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob7pos*20))
-        if self.Mob8skin == 1:
-            self.screen.blit(self.imgGolem, (self.Mob8pos*20))
-        elif self.Mob8skin == 2:
-            self.screen.blit(self.imgVampire, (self.Mob8pos*20))
-        elif self.Mob8skin == 3:
+        elif self.Mob7Liste[1] == 4:
+            self.screen.blit(self.imgGolem, (self.Mob7pos*20))
+        if self.Mob8Liste[1] == 1:
+            self.screen.blit(self.im3Vampire, (self.Mob8pos*20))
+        elif self.Mob8Liste[1] == 2:
             self.screen.blit(self.imgGoblin, (self.Mob8pos*20))
-        elif self.Mob8skin == 4:
+        elif self.Mob8Liste[1] == 3:
             self.screen.blit(self.imgDragon, (self.Mob8pos*20))
+        elif self.Mob8Liste[1] == 4:
+            self.screen.blit(self.imgDragon, (self.Mob8pos*20))
+
+        if self.MobimFocus == 1:
+            pygame.draw.rect(self.screen, self.red, [610, 45, self.lebenspieler / self.maximallebenspieler*140, 30])
+
 
         pygame.draw.rect(self.screen, self.red, [610, 45, self.lebenspieler / self.maximallebenspieler*140, 30])
         pygame.draw.rect(self.screen, self.blue, [610, 30, self.manaSpieler / self.maximalmanaSpieler*140, 15])
