@@ -305,6 +305,22 @@ class Starter(PygameHelper):
                     Kampf (self,2)
                 else:
                     self.SpielerVec += (20,0)
+            elif key == K_1:
+                self.MobimFocus = 1
+            elif key == K_2:
+                self.MobimFocus = 2
+            elif key == K_3:
+                self.MobimFocus = 3
+            elif key == K_4:
+                self.MobimFocus = 4
+            elif key == K_5:
+                self.MobimFocus = 5
+            elif key == K_6:
+                self.MobimFocus = 6
+            elif key == K_7:
+                self.MobimFocus = 7
+            elif key == K_8:
+                self.MobimFocus = 8
     def update(self):
         self.SpielerListe[4] = 10 + self.Spielerinventory1[5] + self.Spielerinventory2[5] + self.Spielerinventory3[5] + self.Spielerinventory4[5] + self.Spielerinventory5[5] + self.Spielerinventory6[5] + self.Spielerinventory7[5] + self.Spielerinventory8[5] + self.Spielerinventory9[5] + self.Spielerinventory10[5]
         self.SpielerListe[6] = 5 + self.Spielerinventory1[7] + self.Spielerinventory2[7] + self.Spielerinventory3[7] + self.Spielerinventory4[7] + self.Spielerinventory5[7] + self.Spielerinventory6[7] + self.Spielerinventory7[7] + self.Spielerinventory8[7] + self.Spielerinventory9[7] + self.Spielerinventory10[7]
