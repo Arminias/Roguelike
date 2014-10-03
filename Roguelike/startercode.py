@@ -242,7 +242,8 @@ class Starter(PygameHelper):
 
     def keyDown(self,key):
             print (self.SpielerVec)
-            def Kampf (self,Richtung):
+            #def Kampf
+            def KampfVorbereitung (self,Richtung):
                 if Richtung == 1:
                     if self.SpielerVec[0] // 20 == self.Mob1pos[0] and (self.SpielerVec[1]-1) // 20 == self.Mob1pos[1]: self.MobimFocus = 1
                     elif self.SpielerVec[0] // 20 == self.Mob2pos[0] and (self.SpielerVec[1]-1) // 20 == self.Mob2pos[1]: self.MobimFocus = 2
@@ -281,28 +282,36 @@ class Starter(PygameHelper):
                     elif (self.SpielerVec[0]-20) // 20 == self.Mob8pos[0] and self.SpielerVec[1] // 20 == self.Mob8pos[1]: self.MobimFocus = 8
                 print (self.MobimFocus)
                 print ("Kampf")
-                if self.MobimFocus == 1:
-                    if self.Mob1Liste[4] > self.SpielerListe[6]:
-                        pass
+
+                if self.MobimFocus == 1: self.KampfListe = self.Mob1Liste
+                elif self.MobimFocus == 2: self.KampfListe = self.Mob2Liste
+                elif self.MobimFocus == 3: self.KampfListe = self.Mob3Liste
+                elif self.MobimFocus == 4: self.KampfListe = self.Mob4Liste
+                elif self.MobimFocus == 5: self.KampfListe = self.Mob5Liste
+                elif self.MobimFocus == 6: self.KampfListe = self.Mob6Liste
+                elif self.MobimFocus == 7: self.KampfListe = self.Mob7Liste
+                elif self.MobimFocus == 8: self.KampfListe = self.Mob8Liste
+                print (self.KampfListe)
+
 
             if key == K_w and self.map[(self.SpielerVec[1]//20-2)*28 + self.SpielerVec[0]//20-1] > 0 and self.SpielerVec [1] != 20:
                 if self.map[(self.SpielerVec[1]//20-2)*28 + self.SpielerVec[0]//20-1] > 10:
-                    Kampf (self,1)
+                    KampfVorbereitung (self,1)
                 else:
                     self.SpielerVec +=  (0,-20)
             elif key == K_a and self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20-2] > 0 and self.SpielerVec [0] != 20:
                 if self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20-2] > 10:
-                    Kampf (self,4)
+                    KampfVorbereitung (self,4)
                 else:
                     self.SpielerVec += (-20,0)
             elif key == K_s and self.map[(self.SpielerVec[1]//20)*28 + self.SpielerVec[0]//20-1] > 0 and self.SpielerVec [1] != 560:
                 if self.map[(self.SpielerVec[1]//20)*28 + self.SpielerVec[0]//20-1] > 10:
-                    Kampf (self,3)
+                    KampfVorbereitung (self,3)
                 else:
                     self.SpielerVec += (0,20)
             elif key == K_d and self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20] > 0 and self.SpielerVec [0] != 560:
                 if self.map[(self.SpielerVec[1]//20-1)*28 + self.SpielerVec[0]//20] > 10:
-                    Kampf (self,2)
+                    KampfVorbereitung (self,2)
                 else:
                     self.SpielerVec += (20,0)
             elif key == K_1:
@@ -335,11 +344,23 @@ class Starter(PygameHelper):
         if self.SpielerListe[13] > self.SpielerListe[12]:
             self.SpielerListe[13] = self.SpielerListe[12]
     def mouseUp(self, button, pos):
-        self.target = vec2d( pos)
-        if self.target[0] >= self.Mob1pos[0] and self.target[0] <= self.Mob1pos[0] +20 and self.target[1] >= self.Mob1pos[1] and self.target[1] <= self.Mob1pos[1] +20:
-            print ("MOb1")
-
-
+        if button == 1:
+            if self.target1[0]   >= self.Mob1pos[0] * 20 and self.target1[1] >= self.Mob1pos[1] * 20 and self.target1[0]   <= self.Mob1pos[0] *20 +20 and self.target1[1] <= self.Mob1pos[1] * 20 +20:
+                 self.MobimFocus = 1
+            elif self.target1[0]   >= self.Mob2pos[0] * 20 and self.target1[1] >= self.Mob2pos[1] * 20 and self.target1[0]   <= self.Mob2pos[0] *20 +20 and self.target1[1] <= self.Mob2pos[1] * 20 +20:
+                 self.MobimFocus = 2
+            elif self.target1[0]   >= self.Mob3pos[0] * 20 and self.target1[1] >= self.Mob3pos[1] * 20 and self.target1[0]   <= self.Mob3pos[0] *20 +20 and self.target1[1] <= self.Mob3pos[1] * 20 +20:
+                 self.MobimFocus = 3
+            elif self.target1[0]   >= self.Mob4pos[0] * 20 and self.target1[1] >= self.Mob4pos[1] * 20 and self.target1[0]   <= self.Mob4pos[0] *20 +20 and self.target1[1] <= self.Mob4pos[1] * 20 +20:
+                 self.MobimFocus = 4
+            elif self.target1[0]   >= self.Mob5pos[0] * 20 and self.target1[1] >= self.Mob5pos[1] * 20 and self.target1[0]   <= self.Mob5pos[0] *20 +20 and self.target1[1] <= self.Mob5pos[1] * 20 +20:
+                 self.MobimFocus = 5
+            elif self.target1[0]   >= self.Mob6pos[0] * 20 and self.target1[1] >= self.Mob6pos[1] * 20 and self.target1[0]   <= self.Mob6pos[0] *20 +20 and self.target1[1] <= self.Mob6pos[1] * 20 +20:
+                 self.MobimFocus = 6
+            elif self.target1[0]   >= self.Mob7pos[0] * 20 and self.target1[1] >= self.Mob7pos[1] * 20 and self.target1[0]   <= self.Mob7pos[0] *20 +20 and self.target1[1] <= self.Mob7pos[1] * 20 +20:
+                 self.MobimFocus = 7
+            elif self.target1[0]   >= self.Mob8pos[0] * 20 and self.target1[1] >= self.Mob8pos[1] * 20 and self.target1[0]   <= self.Mob8pos[0] *20 +20 and self.target1[1] <= self.Mob8pos[1] * 20 +20:
+                 self.MobimFocus = 8
 
     def mouseMotion(self, buttons, pos, rel):
         pass
