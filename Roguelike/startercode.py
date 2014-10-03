@@ -365,6 +365,7 @@ class Starter(PygameHelper):
     def mouseMotion(self, buttons, pos, rel):
         pass
 
+
     def draw(self):
         self.screen.fill((220,180,130))
         for temp in range (0,30,):                  #Lädt die obere Begrenzungslinie
