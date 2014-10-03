@@ -31,6 +31,7 @@ class Starter(PygameHelper):
         self.blue = [0, 0, 255]
         self.myfont = pygame.font.SysFont("monospace", 20)
         self.Leveldesign = pygame.font.SysFont("monospace", 40)
+        self.Ausdauerimg = pygame.image.load ("tilesets/EigeneBilder/Ausdauer.png")
         self.Verteidigungimg = pygame.image.load ("tilesets/EigeneBilder/Verteidigung.png")
         self.Staerkeimg = pygame.image.load ("tilesets/EigeneBilder/Staerke3.png")
         self.Geschicklichkeitimg = pygame.image.load ("tilesets/EigeneBilder/Geschicklichkeit.png")
@@ -78,10 +79,12 @@ class Starter(PygameHelper):
         self.Mob1Liste[1] = random.randint(1, 4)
         self.Mob1Liste[2] = self.Mob1Liste[0]* self.Mob1Liste[0]*self.Mob1Liste[1]
         self.Mob1Liste[3] = self.Mob1Liste[2]
-        self.Mob1Liste[4] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
-        self.Mob1Liste[5] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
-        self.Mob1Liste[6] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
-        self.Mob1Liste[7] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
+        self.Mob1Liste[4] = random.randint(1, self.Mob1Liste[0]) * self.Mob1Liste[0] + random.randint (0,5)
+        self.Mob1Liste[5] = 0
+        self.Mob1Liste[6] = random.randint(1, self.Mob1Liste[0]) * self.Mob1Liste[0] + random.randint (0,5)
+        self.Mob1Liste[7] = random.randint(1, self.Mob1Liste[0]) * self.Mob1Liste[0] + random.randint (0,5)
+        self.Mob1Liste[8] = random.randint(1, self.Mob1Liste[0]) * self.Mob1Liste[0] + random.randint (0,5)
+        self.Mob1Liste[9] = random.randint(1, self.Mob1Liste[0]) * self.Mob1Liste[0] + random.randint (0,5)
         self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
         while self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] <= 0 or self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] > 10: # or self.Mob1pos == 0:
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -91,10 +94,12 @@ class Starter(PygameHelper):
         self.Mob2Liste[1] = random.randint(1, 4)
         self.Mob2Liste[2] = self.Mob2Liste[0]* self.Mob2Liste[0]*self.Mob2Liste[1]
         self.Mob2Liste[3] = self.Mob2Liste[2]
-        self.Mob2Liste[4] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
-        self.Mob2Liste[5] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
-        self.Mob2Liste[6] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
-        self.Mob2Liste[7] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
+        self.Mob2Liste[4] = random.randint(1, self.Mob2Liste[0]) * self.Mob2Liste[0] + random.randint (0,5)
+        self.Mob2Liste[5] = 0
+        self.Mob2Liste[6] = random.randint(1, self.Mob2Liste[0]) * self.Mob2Liste[0] + random.randint (0,5)
+        self.Mob2Liste[7] = random.randint(1, self.Mob2Liste[0]) * self.Mob2Liste[0] + random.randint (0,5)
+        self.Mob2Liste[8] = random.randint(1, self.Mob2Liste[0]) * self.Mob2Liste[0] + random.randint (0,5)
+        self.Mob2Liste[9] = random.randint(1, self.Mob2Liste[0]) * self.Mob2Liste[0] + random.randint (0,5)
         self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] <= 0 or self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] > 10: # or self.Mob2pos == 0:
             self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
@@ -104,10 +109,12 @@ class Starter(PygameHelper):
         self.Mob3Liste[1] = random.randint (1, 4)
         self.Mob3Liste[2] = self.Mob3Liste[0]* self.Mob3Liste[0]*self.Mob1Liste[1]
         self.Mob3Liste[3] = self.Mob3Liste[2]
-        self.Mob3Liste[4] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
-        self.Mob3Liste[5] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
-        self.Mob3Liste[6] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
-        self.Mob3Liste[7] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
+        self.Mob3Liste[4] = random.randint(1, self.Mob3Liste[0]) * self.Mob3Liste[0] + random.randint (0,5)
+        self.Mob3Liste[5] = 0
+        self.Mob3Liste[6] = random.randint(1, self.Mob3Liste[0]) * self.Mob3Liste[0] + random.randint (0,5)
+        self.Mob3Liste[7] = random.randint(1, self.Mob3Liste[0]) * self.Mob3Liste[0] + random.randint (0,5)
+        self.Mob3Liste[8] = random.randint(1, self.Mob3Liste[0]) * self.Mob3Liste[0] + random.randint (0,5)
+        self.Mob3Liste[9] = random.randint(1, self.Mob3Liste[0]) * self.Mob3Liste[0] + random.randint (0,5)
         self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] <= 0 or self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] > 10: # or self.Mob3pos == 0:
             self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
@@ -117,10 +124,12 @@ class Starter(PygameHelper):
         self.Mob4Liste[1] = random.randint(1, 4)
         self.Mob4Liste[2] = self.Mob4Liste[0]* self.Mob4Liste[0]*self.Mob4Liste[1]
         self.Mob4Liste[3] = self.Mob4Liste[2]
-        self.Mob4Liste[4] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
-        self.Mob4Liste[5] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
-        self.Mob4Liste[6] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
-        self.Mob4Liste[7] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
+        self.Mob4Liste[4] = random.randint(1, self.Mob4Liste[0]) * self.Mob4Liste[0] + random.randint (0,5)
+        self.Mob4Liste[5] = 0
+        self.Mob4Liste[6] = random.randint(1, self.Mob4Liste[0]) * self.Mob4Liste[0] + random.randint (0,5)
+        self.Mob4Liste[7] = random.randint(1, self.Mob4Liste[0]) * self.Mob4Liste[0] + random.randint (0,5)
+        self.Mob4Liste[8] = random.randint(1, self.Mob4Liste[0]) * self.Mob4Liste[0] + random.randint (0,5)
+        self.Mob4Liste[9] = random.randint(1, self.Mob4Liste[0]) * self.Mob4Liste[0] + random.randint (0,5)
         self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] <= 0 or self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -130,10 +139,12 @@ class Starter(PygameHelper):
         self.Mob5Liste[1] = random.randint(1, 4)
         self.Mob5Liste[2] = self.Mob5Liste[0]* self.Mob5Liste[0]*self.Mob5Liste[1]
         self.Mob5Liste[3] = self.Mob5Liste[2]
-        self.Mob5Liste[4] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
-        self.Mob5Liste[5] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
-        self.Mob5Liste[6] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
-        self.Mob5Liste[7] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
+        self.Mob5Liste[4] = random.randint(1, self.Mob5Liste[0]) * self.Mob5Liste[0] + random.randint (0,5)
+        self.Mob5Liste[5] = 0
+        self.Mob5Liste[6] = random.randint(1, self.Mob5Liste[0]) * self.Mob5Liste[0] + random.randint (0,5)
+        self.Mob5Liste[7] = random.randint(1, self.Mob5Liste[0]) * self.Mob5Liste[0] + random.randint (0,5)
+        self.Mob5Liste[8] = random.randint(1, self.Mob5Liste[0]) * self.Mob5Liste[0] + random.randint (0,5)
+        self.Mob5Liste[9] = random.randint(1, self.Mob5Liste[0]) * self.Mob5Liste[0] + random.randint (0,5)
         self.Mob5pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob5pos[1]-1) *28+ self.Mob5pos[0] - 1] <= 0 or self.map [(self.Mob5pos[1]-1) *28+ self.Mob5pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob5pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -143,10 +154,10 @@ class Starter(PygameHelper):
         self.Mob6Liste[1] = random.randint(1, 4)
         self.Mob6Liste[2] = self.Mob6Liste[0]* self.Mob6Liste[0]*self.Mob6Liste[1]
         self.Mob6Liste[3] = self.Mob6Liste[2]
-        self.Mob6Liste[4] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
-        self.Mob6Liste[5] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
-        self.Mob6Liste[6] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
-        self.Mob6Liste[7] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
+        self.Mob6Liste[4] = random.randint(1, self.Mob6Liste[0]) * self.Mob6Liste[0] + random.randint (0,5)
+        self.Mob6Liste[5] = random.randint(1, self.Mob6Liste[0]) * self.Mob6Liste[0] + random.randint (0,5)
+        self.Mob6Liste[6] = random.randint(1, self.Mob6Liste[0]) * self.Mob6Liste[0] + random.randint (0,5)
+        self.Mob6Liste[7] = random.randint(1, self.Mob6Liste[0]) * self.Mob6Liste[0] + random.randint (0,5)
         self.Mob6pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob6pos[1]-1) *28+ self.Mob6pos[0] - 1] <= 0 or self.map [(self.Mob6pos[1]-1) *28+ self.Mob6pos[0] - 1] <= 0 > 10: # or self.Mob4pos == 0:
             self.Mob6pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -156,10 +167,12 @@ class Starter(PygameHelper):
         self.Mob7Liste[1] = random.randint(1, 4)
         self.Mob7Liste[2] = self.Mob7Liste[0]* self.Mob7Liste[0]*self.Mob7Liste[1]
         self.Mob7Liste[3] = self.Mob7Liste[2]
-        self.Mob7Liste[4] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
-        self.Mob7Liste[5] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
-        self.Mob7Liste[6] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
-        self.Mob7Liste[7] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
+        self.Mob7Liste[4] = random.randint(1, self.Mob7Liste[0]) * self.Mob7Liste[0] + random.randint (0,5)
+        self.Mob7Liste[5] = 0
+        self.Mob7Liste[6] = random.randint(1, self.Mob7Liste[0]) * self.Mob7Liste[0] + random.randint (0,5)
+        self.Mob7Liste[7] = random.randint(1, self.Mob7Liste[0]) * self.Mob7Liste[0] + random.randint (0,5)
+        self.Mob7Liste[8] = random.randint(1, self.Mob7Liste[0]) * self.Mob7Liste[0] + random.randint (0,5)
+        self.Mob7Liste[9] = random.randint(1, self.Mob7Liste[0]) * self.Mob7Liste[0] + random.randint (0,5)
         self.Mob7pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob7pos[1]-1) *28+ self.Mob7pos[0] - 1] <= 0 or self.map [(self.Mob7pos[1]-1) *28+ self.Mob7pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob7pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -169,10 +182,12 @@ class Starter(PygameHelper):
         self.Mob8Liste[1] = random.randint(1, 4)
         self.Mob8Liste[2] = self.Mob8Liste[0]* self.Mob8Liste[0]*self.Mob8Liste[1]
         self.Mob8Liste[3] = self.Mob8Liste[2]
-        self.Mob8Liste[4] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
-        self.Mob8Liste[5] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
-        self.Mob8Liste[6] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
-        self.Mob8Liste[7] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
+        self.Mob8Liste[4] = random.randint(1, self.Mob8Liste[0]) * self.Mob8Liste[0] + random.randint (0,5)
+        self.Mob8Liste[5] = 0
+        self.Mob8Liste[6] = random.randint(1, self.Mob8Liste[0]) * self.Mob8Liste[0] + random.randint (0,5)
+        self.Mob8Liste[7] = random.randint(1, self.Mob8Liste[0]) * self.Mob8Liste[0] + random.randint (0,5)
+        self.Mob8Liste[8] = random.randint(1, self.Mob8Liste[0]) * self.Mob8Liste[0] + random.randint (0,5)
+        self.Mob8Liste[9] = random.randint(1, self.Mob8Liste[0]) * self.Mob8Liste[0] + random.randint (0,5)
         self.Mob8pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob8pos[1]-1) *28+ self.Mob8pos[0] - 1] <= 0 or self.map [(self.Mob8pos[1]-1) *28+ self.Mob8pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob8pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -204,12 +219,12 @@ class Starter(PygameHelper):
         self.SpielerListe[3] = 0
         self.SpielerListe[4] = 10
         self.SpielerListe[5] = 10
-        self.SpielerListe[6] = 10
-        self.SpielerListe[7] = 10
-        self.SpielerListe[8] = 10
-        self.SpielerListe[9] = 10
-        self.SpielerListe[10] = 10
-        self.SpielerListe[11] = 10
+        self.SpielerListe[6] = 5
+        self.SpielerListe[7] = 5
+        self.SpielerListe[8] = 5
+        self.SpielerListe[9] = 5
+        self.SpielerListe[10] = 5
+        self.SpielerListe[11] = 5
         self.SpielerListe[12] = 10
         self.SpielerListe[13] = 10
 
@@ -292,12 +307,12 @@ class Starter(PygameHelper):
                     self.SpielerVec += (20,0)
     def update(self):
         self.SpielerListe[4] = 10 + self.Spielerinventory1[5] + self.Spielerinventory2[5] + self.Spielerinventory3[5] + self.Spielerinventory4[5] + self.Spielerinventory5[5] + self.Spielerinventory6[5] + self.Spielerinventory7[5] + self.Spielerinventory8[5] + self.Spielerinventory9[5] + self.Spielerinventory10[5]
-        self.SpielerListe[6] = 10 + self.Spielerinventory1[7] + self.Spielerinventory2[7] + self.Spielerinventory3[7] + self.Spielerinventory4[7] + self.Spielerinventory5[7] + self.Spielerinventory6[7] + self.Spielerinventory7[7] + self.Spielerinventory8[7] + self.Spielerinventory9[7] + self.Spielerinventory10[7]
-        self.SpielerListe[7] = 10 + self.Spielerinventory1[8] + self.Spielerinventory2[8] + self.Spielerinventory3[8] + self.Spielerinventory4[8] + self.Spielerinventory5[8] + self.Spielerinventory6[8] + self.Spielerinventory7[8] + self.Spielerinventory8[8] + self.Spielerinventory9[8] + self.Spielerinventory10[8]
-        self.SpielerListe[8] = 10 + self.Spielerinventory1[9] + self.Spielerinventory2[9] + self.Spielerinventory3[9] + self.Spielerinventory4[9] + self.Spielerinventory5[9] + self.Spielerinventory6[9] + self.Spielerinventory7[9] + self.Spielerinventory8[9] + self.Spielerinventory9[9] + self.Spielerinventory10[9]
-        self.SpielerListe[9] = 10 + self.Spielerinventory1[10] + self.Spielerinventory2[10] + self.Spielerinventory3[10] + self.Spielerinventory4[10] + self.Spielerinventory5[10] + self.Spielerinventory6[10] + self.Spielerinventory7[10] + self.Spielerinventory8[10] + self.Spielerinventory9[10] + self.Spielerinventory10[10]
-        self.SpielerListe[10] = 10 + self.Spielerinventory1[11] + self.Spielerinventory2[11] + self.Spielerinventory3[11] + self.Spielerinventory4[11] + self.Spielerinventory5[11] + self.Spielerinventory6[11] + self.Spielerinventory7[11] + self.Spielerinventory8[11] + self.Spielerinventory9[11] + self.Spielerinventory10[11]
-        self.SpielerListe[11] = 10 + self.Spielerinventory1[12] + self.Spielerinventory2[12] + self.Spielerinventory3[12] + self.Spielerinventory4[12] + self.Spielerinventory5[12] + self.Spielerinventory6[12] + self.Spielerinventory7[12] + self.Spielerinventory8[12] + self.Spielerinventory9[12] + self.Spielerinventory10[12]
+        self.SpielerListe[6] = 5 + self.Spielerinventory1[7] + self.Spielerinventory2[7] + self.Spielerinventory3[7] + self.Spielerinventory4[7] + self.Spielerinventory5[7] + self.Spielerinventory6[7] + self.Spielerinventory7[7] + self.Spielerinventory8[7] + self.Spielerinventory9[7] + self.Spielerinventory10[7]
+        self.SpielerListe[7] = 5 + self.Spielerinventory1[8] + self.Spielerinventory2[8] + self.Spielerinventory3[8] + self.Spielerinventory4[8] + self.Spielerinventory5[8] + self.Spielerinventory6[8] + self.Spielerinventory7[8] + self.Spielerinventory8[8] + self.Spielerinventory9[8] + self.Spielerinventory10[8]
+        self.SpielerListe[8] = 5 + self.Spielerinventory1[9] + self.Spielerinventory2[9] + self.Spielerinventory3[9] + self.Spielerinventory4[9] + self.Spielerinventory5[9] + self.Spielerinventory6[9] + self.Spielerinventory7[9] + self.Spielerinventory8[9] + self.Spielerinventory9[9] + self.Spielerinventory10[9]
+        self.SpielerListe[9] = 5 + self.Spielerinventory1[10] + self.Spielerinventory2[10] + self.Spielerinventory3[10] + self.Spielerinventory4[10] + self.Spielerinventory5[10] + self.Spielerinventory6[10] + self.Spielerinventory7[10] + self.Spielerinventory8[10] + self.Spielerinventory9[10] + self.Spielerinventory10[10]
+        self.SpielerListe[10] = 5 + self.Spielerinventory1[11] + self.Spielerinventory2[11] + self.Spielerinventory3[11] + self.Spielerinventory4[11] + self.Spielerinventory5[11] + self.Spielerinventory6[11] + self.Spielerinventory7[11] + self.Spielerinventory8[11] + self.Spielerinventory9[11] + self.Spielerinventory10[11]
+        self.SpielerListe[11] = 5 + self.Spielerinventory1[12] + self.Spielerinventory2[12] + self.Spielerinventory3[12] + self.Spielerinventory4[12] + self.Spielerinventory5[12] + self.Spielerinventory6[12] + self.Spielerinventory7[12] + self.Spielerinventory8[12] + self.Spielerinventory9[12] + self.Spielerinventory10[12]
         self.SpielerListe[12] = 10 + self.Spielerinventory1[13] + self.Spielerinventory2[13] + self.Spielerinventory3[13] + self.Spielerinventory4[13] + self.Spielerinventory5[13] + self.Spielerinventory6[13] + self.Spielerinventory7[13] + self.Spielerinventory8[13] + self.Spielerinventory9[13] + self.Spielerinventory10[13]
         if self.SpielerListe[5] > self.SpielerListe[4]:
             self.SpielerListe[5] = self.SpielerListe[4]
@@ -399,49 +414,96 @@ class Starter(PygameHelper):
             self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[2])), 1, (0, 0, 0)), (610, 440))
-            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[2])), 1, (255, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[9])), 1, (255, 0, 0)), (750, 350))
         elif self.MobimFocus == 2:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob2Liste[2] / self.Mob2Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob2Liste[0])), 1, (0, 0, 0)), (765, 400))
             self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob2Liste[9])), 1, (255, 0, 0)), (750, 350))
         elif self.MobimFocus == 3:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob3Liste[2] / self.Mob3Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob3Liste[0])), 1, (0, 0, 0)), (765, 400))
             self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob3Liste[9])), 1, (255, 0, 0)), (750, 350))
         elif self.MobimFocus == 4:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob4Liste[2] / self.Mob4Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob4Liste[0])), 1, (0, 0, 0)), (765, 400))
             self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob4Liste[9])), 1, (255, 0, 0)), (750, 350))
         elif self.MobimFocus == 5:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob5Liste[2] / self.Mob5Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob5Liste[0])), 1, (0, 0, 0)), (765, 400))
             self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob5Liste[9])), 1, (255, 0, 0)), (750, 350))
         elif self.MobimFocus == 6:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob6Liste[2] / self.Mob6Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob6Liste[0])), 1, (0, 0, 0)), (765, 400))
             self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob6Liste[9])), 1, (255, 0, 0)), (750, 350))
         elif self.MobimFocus == 7:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob7Liste[2] / self.Mob7Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob7Liste[0])), 1, (0, 0, 0)), (765, 400))
             self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob7Liste[9])), 1, (255, 0, 0)), (750, 350))
         elif self.MobimFocus == 8:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob8Liste[2] / self.Mob8Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob8Liste[0])), 1, (0, 0, 0)), (765, 400))
             self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[4])), 1, (255, 0, 0)), (610, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[5])), 1, (255, 0, 0)), (680, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[6])), 1, (255, 0, 0)), (750, 260))
+            self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[7])), 1, (255, 0, 0)), (610, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[8])), 1, (255, 0, 0)), (680, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob82Liste[9])), 1, (255, 0, 0)), (750, 350))
 
         pygame.draw.rect(self.screen, self.red, [610, 45, self.SpielerListe[5] / self.SpielerListe[4]*140, 30])
         pygame.draw.rect(self.screen, self.blue, [610, 30, self.SpielerListe[13] / self.SpielerListe[12]*140, 15])
@@ -462,6 +524,8 @@ class Starter(PygameHelper):
         self.screen.blit(self.myfont.render(str(int(self.SpielerListe[8])), 1, (0, 0, 0)), (610, 330))
         self.screen.blit(self.Verteidigungimg, (680,290))
         self.screen.blit(self.myfont.render(str(int(self.SpielerListe[11])), 1, (0, 0, 0)), (680, 330))
+        self.screen.blit(self.Ausdauerimg, (750,290))
+        self.screen.blit(self.myfont.render(str(int(self.SpielerListe[9])), 1, (0, 0, 0)), (750, 330))
 
         pygame.draw.rect(self.screen, self.red, [610, 560, 180, 30])
         self.screen.blit(self.myfont.render("Beenden", 1, (0, 0, 0)), (630, 560))
