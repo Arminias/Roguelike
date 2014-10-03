@@ -529,6 +529,7 @@ class Starter(PygameHelper):
         self.screen.blit(self.myfont.render(str(int(self.SpielerListe[4])), 1, (0, 0, 0)), (715, 75))
         self.screen.blit(self.Leveldesign.render(str(int(self.SpielerListe[0])), 1, (0, 0, 0)), (765, 30))
 
+
         self.screen.blit(self.ItemSlots, (610,110))
         self.screen.blit(self.Attackimg2, (610,200))
         self.screen.blit(self.myfont.render(str(int(self.SpielerListe[6])), 1, (0, 0, 0)), (610, 240))
