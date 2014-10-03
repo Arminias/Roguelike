@@ -519,7 +519,7 @@ class Starter(PygameHelper):
             self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[6])), 1, (255, 0, 0)), (750, 260))
             self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[7])), 1, (255, 0, 0)), (610, 350))
             self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[8])), 1, (255, 0, 0)), (680, 350))
-            self.screen.blit(self.myfont.render(str(int(self.Mob82Liste[9])), 1, (255, 0, 0)), (750, 350))
+            self.screen.blit(self.myfont.render(str(int(self.Mob8Liste[9])), 1, (255, 0, 0)), (750, 350))
 
         pygame.draw.rect(self.screen, self.red, [610, 45, self.SpielerListe[5] / self.SpielerListe[4]*140, 30])
         pygame.draw.rect(self.screen, self.blue, [610, 30, self.SpielerListe[13] / self.SpielerListe[12]*140, 15])
