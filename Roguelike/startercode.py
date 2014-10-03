@@ -78,8 +78,10 @@ class Starter(PygameHelper):
         self.Mob1Liste[1] = random.randint(1, 4)
         self.Mob1Liste[2] = self.Mob1Liste[0]* self.Mob1Liste[0]*self.Mob1Liste[1]
         self.Mob1Liste[3] = self.Mob1Liste[2]
-        self.Mob1Liste[4] = self.Mob1Liste[0] * random.randint(1,10)
-        self.Mob1Liste[7] = 1
+        self.Mob1Liste[4] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
+        self.Mob1Liste[5] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
+        self.Mob1Liste[6] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
+        self.Mob1Liste[7] = random.randint(1, self.Mob1Liste[0]) * random.randint (1, self.Mob1Liste[0]) + random.randint (0,5)
         self.Mob1pos = vec2d(random.randint(1,28), random.randint(1, 28))
         while self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] <= 0 or self.map [(self.Mob1pos[1]-1)* 28 + self.Mob1pos[0] - 1] > 10: # or self.Mob1pos == 0:
             self.Mob1pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -89,7 +91,10 @@ class Starter(PygameHelper):
         self.Mob2Liste[1] = random.randint(1, 4)
         self.Mob2Liste[2] = self.Mob2Liste[0]* self.Mob2Liste[0]*self.Mob2Liste[1]
         self.Mob2Liste[3] = self.Mob2Liste[2]
-        self.Mob2Liste[7] = 2
+        self.Mob2Liste[4] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
+        self.Mob2Liste[5] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
+        self.Mob2Liste[6] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
+        self.Mob2Liste[7] = random.randint(1, self.Mob2Liste[0]) * random.randint (1, self.Mob2Liste[0]) + random.randint (0,5)
         self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] <= 0 or self.map [(self.Mob2pos[1]-1) *28 + self.Mob2pos[0] - 1] > 10: # or self.Mob2pos == 0:
             self.Mob2pos = vec2d(random.randint(1, 28), random.randint(1, 28))
@@ -99,7 +104,10 @@ class Starter(PygameHelper):
         self.Mob3Liste[1] = random.randint (1, 4)
         self.Mob3Liste[2] = self.Mob3Liste[0]* self.Mob3Liste[0]*self.Mob1Liste[1]
         self.Mob3Liste[3] = self.Mob3Liste[2]
-        self.Mob3Liste[7] = 3
+        self.Mob3Liste[4] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
+        self.Mob3Liste[5] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
+        self.Mob3Liste[6] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
+        self.Mob3Liste[7] = random.randint(1, self.Mob3Liste[0]) * random.randint (1, self.Mob3Liste[0]) + random.randint (0,5)
         self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
         while self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] <= 0 or self.map[(self.Mob3pos[1]-1) *28+ self.Mob3pos[0] - 1] > 10: # or self.Mob3pos == 0:
             self.Mob3pos = vec2d(random.randint(1, 28), random.randint(1, 28))
@@ -109,7 +117,10 @@ class Starter(PygameHelper):
         self.Mob4Liste[1] = random.randint(1, 4)
         self.Mob4Liste[2] = self.Mob4Liste[0]* self.Mob4Liste[0]*self.Mob4Liste[1]
         self.Mob4Liste[3] = self.Mob4Liste[2]
-        self.Mob4Liste[7] = 4
+        self.Mob4Liste[4] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
+        self.Mob4Liste[5] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
+        self.Mob4Liste[6] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
+        self.Mob4Liste[7] = random.randint(1, self.Mob4Liste[0]) * random.randint (1, self.Mob4Liste[0]) + random.randint (0,5)
         self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] <= 0 or self.map [(self.Mob4pos[1]-1) *28+ self.Mob4pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob4pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -119,7 +130,10 @@ class Starter(PygameHelper):
         self.Mob5Liste[1] = random.randint(1, 4)
         self.Mob5Liste[2] = self.Mob5Liste[0]* self.Mob5Liste[0]*self.Mob5Liste[1]
         self.Mob5Liste[3] = self.Mob5Liste[2]
-        self.Mob5Liste[7] = 5
+        self.Mob5Liste[4] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
+        self.Mob5Liste[5] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
+        self.Mob5Liste[6] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
+        self.Mob5Liste[7] = random.randint(1, self.Mob5Liste[0]) * random.randint (1, self.Mob5Liste[0]) + random.randint (0,5)
         self.Mob5pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob5pos[1]-1) *28+ self.Mob5pos[0] - 1] <= 0 or self.map [(self.Mob5pos[1]-1) *28+ self.Mob5pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob5pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -129,7 +143,10 @@ class Starter(PygameHelper):
         self.Mob6Liste[1] = random.randint(1, 4)
         self.Mob6Liste[2] = self.Mob6Liste[0]* self.Mob6Liste[0]*self.Mob6Liste[1]
         self.Mob6Liste[3] = self.Mob6Liste[2]
-        self.Mob6Liste[7] = 6
+        self.Mob6Liste[4] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
+        self.Mob6Liste[5] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
+        self.Mob6Liste[6] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
+        self.Mob6Liste[7] = random.randint(1, self.Mob6Liste[0]) * random.randint (1, self.Mob6Liste[0]) + random.randint (0,5)
         self.Mob6pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob6pos[1]-1) *28+ self.Mob6pos[0] - 1] <= 0 or self.map [(self.Mob6pos[1]-1) *28+ self.Mob6pos[0] - 1] <= 0 > 10: # or self.Mob4pos == 0:
             self.Mob6pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -139,7 +156,10 @@ class Starter(PygameHelper):
         self.Mob7Liste[1] = random.randint(1, 4)
         self.Mob7Liste[2] = self.Mob7Liste[0]* self.Mob7Liste[0]*self.Mob7Liste[1]
         self.Mob7Liste[3] = self.Mob7Liste[2]
-        self.Mob7Liste[7] = 7
+        self.Mob7Liste[4] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
+        self.Mob7Liste[5] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
+        self.Mob7Liste[6] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
+        self.Mob7Liste[7] = random.randint(1, self.Mob7Liste[0]) * random.randint (1, self.Mob7Liste[0]) + random.randint (0,5)
         self.Mob7pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob7pos[1]-1) *28+ self.Mob7pos[0] - 1] <= 0 or self.map [(self.Mob7pos[1]-1) *28+ self.Mob7pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob7pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -149,7 +169,10 @@ class Starter(PygameHelper):
         self.Mob8Liste[1] = random.randint(1, 4)
         self.Mob8Liste[2] = self.Mob8Liste[0]* self.Mob8Liste[0]*self.Mob8Liste[1]
         self.Mob8Liste[3] = self.Mob8Liste[2]
-        self.Mob8Liste[7] = 8
+        self.Mob8Liste[4] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
+        self.Mob8Liste[5] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
+        self.Mob8Liste[6] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
+        self.Mob8Liste[7] = random.randint(1, self.Mob8Liste[0]) * random.randint (1, self.Mob8Liste[0]) + random.randint (0,5)
         self.Mob8pos = vec2d(random.randint (1, 28), random.randint(1, 28))
         while self.map [(self.Mob8pos[1]-1) *28+ self.Mob8pos[0] - 1] <= 0 or self.map [(self.Mob8pos[1]-1) *28+ self.Mob8pos[0] - 1] > 10: # or self.Mob4pos == 0:
             self.Mob8pos = vec2d(random.randint (1, 28), random.randint(1, 28))
@@ -243,7 +266,10 @@ class Starter(PygameHelper):
                     elif (self.SpielerVec[0]-20) // 20 == self.Mob8pos[0] and self.SpielerVec[1] // 20 == self.Mob8pos[1]: self.MobimFocus = 8
                 print (self.MobimFocus)
                 print ("Kampf")
-                pass
+                if self.MobimFocus == 1:
+                    if self.Mob1Liste[4] > self.SpielerListe[6]:
+                        pass
+
             if key == K_w and self.map[(self.SpielerVec[1]//20-2)*28 + self.SpielerVec[0]//20-1] > 0 and self.SpielerVec [1] != 20:
                 if self.map[(self.SpielerVec[1]//20-2)*28 + self.SpielerVec[0]//20-1] > 10:
                     Kampf (self,1)
@@ -373,6 +399,7 @@ class Starter(PygameHelper):
             self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[3])), 1, (0, 0, 0)), (710, 440))
             self.screen.blit(self.myfont.render("\\\\", 1, (0, 0, 0)), (660, 440))
             self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[2])), 1, (0, 0, 0)), (610, 440))
+            self.screen.blit(self.myfont.render(str(int(self.Mob1Liste[2])), 1, (255, 0, 0)), (610, 440))
         elif self.MobimFocus == 2:
             pygame.draw.rect(self.screen, self.red, [610, 407, self.Mob2Liste[2] / self.Mob2Liste[3]*140, 30])
             self.screen.blit(self.Leveldesign.render(str(int(self.Mob2Liste[0])), 1, (0, 0, 0)), (765, 400))
